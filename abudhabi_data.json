@@ -1,0 +1,6818 @@
+{
+  "days": {
+    "01 FRI": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  FRIDAY, 1 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "02 SAT": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SATURDAY, 2 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "03 SUN": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SUNDAY, 3 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "04 MON": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  MONDAY, 4 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "05 TUE": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  TUESDAY, 5 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "06 WED": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  WEDNESDAY, 6 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "07 THU": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  THURSDAY, 7 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "08 FRI": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  FRIDAY, 8 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "09 SAT": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SATURDAY, 9 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "10 SUN": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SUNDAY, 10 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "11 MON": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  MONDAY, 11 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "12 TUE": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  TUESDAY, 12 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "13 WED": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  WEDNESDAY, 13 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "14 THU": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  THURSDAY, 14 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "15 FRI": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  FRIDAY, 15 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "16 SAT": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SATURDAY, 16 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "17 SUN": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SUNDAY, 17 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "18 MON": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  MONDAY, 18 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "19 TUE": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  TUESDAY, 19 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "20 WED": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  WEDNESDAY, 20 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "21 THU": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  THURSDAY, 21 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "22 FRI": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  FRIDAY, 22 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "23 SAT": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SATURDAY, 23 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "24 SUN": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SUNDAY, 24 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "25 MON": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  MONDAY, 25 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "26 TUE": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  TUESDAY, 26 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "27 WED": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  WEDNESDAY, 27 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "28 THU": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  THURSDAY, 28 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "29 FRI": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  FRIDAY, 29 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "30 SAT": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SATURDAY, 30 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    },
+    "31 SUN": {
+      "title": "ABU DHABI WAREHOUSE  \u2014  SUNDAY, 31 MAY 2026",
+      "records": [
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "1 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "2 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TUBE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG HOSHIZAKI",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG SOLID ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "10 KG TOKYO ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "25 KG CRUSH",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "POOL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "SMALL ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "LONG ICE BLOCK",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "DRY ICE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE PRODUCTS \u2014 FROM DUBAI",
+          "product": "ICE CUP",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT PISTACHIO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT VANILLA",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CHOCOLATE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "JELAT ICE CREAM",
+          "product": "JELAT CARAMEL",
+          "opening": 0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP PINEAPPLE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP ORANGE",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP MANGO",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        },
+        {
+          "category": "ICE POP",
+          "product": "ICE POP STRAWBERRY",
+          "opening": 0.0,
+          "recv_dubai": 0,
+          "recv_umq": 0,
+          "dispatch": 0,
+          "closing": 0.0
+        }
+      ]
+    }
+  },
+  "monthly_summary": [
+    {
+      "category": "ICE PRODUCTS",
+      "product": "1 KG TUBE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "2 KG TUBE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "10 KG CRUSH",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "10 KG TUBE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "10 KG HOSHIZAKI",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "10 KG SOLID ICE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "10 KG TOKYO ICE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "25 KG CRUSH",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "POOL ICE BLOCK",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "SMALL ICE BLOCK",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "LONG ICE BLOCK",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "DRY ICE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE PRODUCTS",
+      "product": "ICE CUP",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT STRAWBERRY",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT MANGO",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT PISTACHIO",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT VANILLA",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT CHOCOLATE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "JELAT ICE CREAM",
+      "product": "JELAT CARAMEL",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE POP",
+      "product": "ICE POP PINEAPPLE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE POP",
+      "product": "ICE POP ORANGE",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE POP",
+      "product": "ICE POP MANGO",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    },
+    {
+      "category": "ICE POP",
+      "product": "ICE POP STRAWBERRY",
+      "recv_dubai": 0.0,
+      "recv_umq": 0.0,
+      "total_received": 0.0,
+      "total_dispatched": 0.0,
+      "closing_stock": 0.0
+    }
+  ],
+  "day_order": [
+    "01 FRI",
+    "02 SAT",
+    "03 SUN",
+    "04 MON",
+    "05 TUE",
+    "06 WED",
+    "07 THU",
+    "08 FRI",
+    "09 SAT",
+    "10 SUN",
+    "11 MON",
+    "12 TUE",
+    "13 WED",
+    "14 THU",
+    "15 FRI",
+    "16 SAT",
+    "17 SUN",
+    "18 MON",
+    "19 TUE",
+    "20 WED",
+    "21 THU",
+    "22 FRI",
+    "23 SAT",
+    "24 SUN",
+    "25 MON",
+    "26 TUE",
+    "27 WED",
+    "28 THU",
+    "29 FRI",
+    "30 SAT",
+    "31 SUN"
+  ]
+}
