@@ -1,519 +1,382 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import {
-  ChevronLeft, ChevronRight, FileDown, CheckCircle, Clock, AlertCircle,
-  Snowflake, Droplets, Package, RefreshCw, RotateCcw, Lock, Unlock, Save
-} from 'lucide-react';
-import { StockRecord, ProductDef, SaveStatus, User } from '../types';
-import { getStockForDate, saveStock, getDaysWithData, fmtDate, isDayLocked, lockDay, unlockDay } from '../utils/db';
+'use client';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useAuth } from './AuthContext';
+import { StockRecord } from '@/types';
 
-interface DailyEntryProps {
-  user: User;
-  products: ProductDef[];
-}
-
-const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const DAYS   = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-
+const CATEGORIES = ['ICE PRODUCTS — FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
 const CAT_COLORS: Record<string, string> = {
-  'ICE PRODUCTS': 'text-info',
-  'JELAT': 'text-secondary',
-  'ICE POP': 'text-accent',
+  'ICE PRODUCTS — FROM DUBAI': '#0d9488',
+  'JELAT ICE CREAM': '#7c3aed',
+  'ICE POP': '#f97316',
 };
-function catColor(cat: string) {
-  for (const [k, v] of Object.entries(CAT_COLORS)) if (cat.toUpperCase().includes(k)) return v;
-  return 'text-primary';
+
+function fmtDate(d: Date) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
-export const DailyEntry: React.FC<DailyEntryProps> = ({ user, products }) => {
-  const today = fmtDate(new Date());
-  const [selectedDate, setSelectedDate] = useState(today);
-  const [viewYear, setViewYear] = useState(new Date().getFullYear());
-  const [viewMonth, setViewMonth] = useState(new Date().getMonth());
+function dayOfYear(d: Date) {
+  const start = new Date(d.getFullYear(), 0, 0);
+  const diff = d.getTime() - start.getTime();
+  return Math.floor(diff / 86400000);
+}
+
+export default function DailyEntry() {
+  const { user, token } = useAuth();
+  const [date, setDate] = useState(() => fmtDate(new Date()));
   const [records, setRecords] = useState<StockRecord[]>([]);
   const [loading, setLoading] = useState(false);
-  const [saveStatus, setSaveStatus]   = useState<SaveStatus>('idle');
-  const [confirmReset, setConfirmReset] = useState(false);
-  const [filledDays, setFilledDays] = useState<string[]>([]);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
-  // Which specific cells were locked at the last Save & Close (snapshot of values > 0 at save time)
-  type LockedRow = { recv_dubai: boolean; recv_umq: boolean; dispatch: boolean };
-  const [lockedFields, setLockedFields] = useState<Record<number, LockedRow>>({});
-  const saveTimer   = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const loadingRef  = useRef(false);   // guard: prevent concurrent loads
-  const productsRef = useRef(products); // stable ref so loadRecords doesn't re-create on every render
-  const recordsRef  = useRef(records);  // stable ref so flushSave always has latest records
-  useEffect(() => { productsRef.current = products; }, [products]);
-  useEffect(() => { recordsRef.current = records; }, [records]);
+  const [lockedFields, setLockedFields] = useState<Set<string>>(new Set());
+  const [showReset, setShowReset] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const recordsRef = useRef<StockRecord[]>([]);
+  const isAdmin = user?.role === 'admin';
 
-  const loadFilledDays = useCallback(async () => {
-    try {
-      const days = await getDaysWithData(viewYear, viewMonth + 1);
-      setFilledDays(days);
-    } catch (e) { /* ignore – non-critical */ }
-  }, [viewYear, viewMonth]);
+  const headers = (token: string) => ({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` });
 
-  const loadRecords = useCallback(async (date: string) => {
-    if (loadingRef.current) return; // prevent concurrent / retry-loop
-    loadingRef.current = true;
+  const loadDay = useCallback(async (d: string) => {
+    if (!token) return;
     setLoading(true);
     try {
-      const [recs, locked] = await Promise.all([
-        getStockForDate(date, productsRef.current),
-        isDayLocked(date),
+      const [stockRes, lockRes] = await Promise.all([
+        fetch(`/api/stock?date=${d}`, { headers: headers(token) }),
+        fetch(`/api/lock?date=${d}`, { headers: headers(token) }),
       ]);
-      setRecords(recs);
-      setIsLocked(locked);
-      // Snapshot which cells had values > 0 at load time (= last saved state)
-      if (locked) {
-        const snap: Record<number, { recv_dubai: boolean; recv_umq: boolean; dispatch: boolean }> = {};
-        recs.forEach((r, i) => { snap[i] = { recv_dubai: r.recv_dubai > 0, recv_umq: r.recv_umq > 0, dispatch: r.dispatch > 0 }; });
-        setLockedFields(snap);
+      const stockData = await stockRes.json();
+      const lockData  = await lockRes.json();
+      setRecords(stockData);
+      recordsRef.current = stockData;
+      setIsLocked(lockData.locked);
+      // Rebuild lockedFields from saved data
+      if (lockData.locked) {
+        const lf = new Set<string>();
+        for (const r of (stockData as StockRecord[])) {
+          if (r.recv_dubai > 0) lf.add(`${r.product_id}_recv_dubai`);
+          if (r.recv_umq   > 0) lf.add(`${r.product_id}_recv_umq`);
+          if (r.dispatch   > 0) lf.add(`${r.product_id}_dispatch`);
+        }
+        setLockedFields(lf);
       } else {
-        setLockedFields({});
+        setLockedFields(new Set());
       }
-    } catch (e) {
-      console.error('Load records failed:', e);
     } finally {
       setLoading(false);
-      loadingRef.current = false;
     }
-  }, []); // no deps — uses refs, so this never re-creates
+  }, [token]);
 
-  useEffect(() => { loadFilledDays(); }, [loadFilledDays]);
-  useEffect(() => { if (selectedDate) loadRecords(selectedDate); }, [selectedDate, loadRecords]);
+  useEffect(() => { loadDay(date); }, [date, loadDay]);
 
-  // Immediately flush any pending debounce save — call this before navigating away
-  const flushSave = useCallback(async () => {
-    if (!saveTimer.current) return;
-    clearTimeout(saveTimer.current);
-    saveTimer.current = null;
-    setSaveStatus('saving');
+  const saveRecords = useCallback(async (recs: StockRecord[]) => {
+    if (!token) return;
+    setSaving(true);
     try {
-      await saveStock(recordsRef.current, user.username);
-      setSaveStatus('saved');
-      await loadFilledDays();
-      setTimeout(() => setSaveStatus('idle'), 2500);
-    } catch (e) {
-      console.error('Flush save failed:', e);
-      setSaveStatus('error');
-    }
-  }, [user.username, loadFilledDays]);
-
-  const triggerSave = useCallback((recs: StockRecord[]) => {
-    if (saveTimer.current) clearTimeout(saveTimer.current);
-    setSaveStatus('saving');
-    saveTimer.current = setTimeout(async () => {
-      try {
-        await saveStock(recs, user.username);
-        setSaveStatus('saved');
-        await loadFilledDays();
-        setTimeout(() => setSaveStatus('idle'), 2500);
-      } catch (e) {
-        console.error('Save failed:', e);
-        setSaveStatus('error');
-      }
-    }, 3000);
-  }, [user.username, loadFilledDays]);
-
-  const updateCell = (idx: number, field: 'opening' | 'recv_dubai' | 'recv_umq' | 'dispatch', val: number) => {
-    setRecords(prev => {
-      const next = prev.map((r, i) => {
-        if (i !== idx) return r;
-        const updated = { ...r, [field]: val < 0 ? 0 : val };
-        updated.closing = updated.opening + updated.recv_dubai + updated.recv_umq - updated.dispatch;
-        if (updated.closing < 0) updated.closing = 0;
-        return updated;
+      await fetch('/api/stock', {
+        method: 'POST',
+        headers: headers(token),
+        body: JSON.stringify({ date, records: recs }),
       });
-      triggerSave(next);
-      return next;
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } finally {
+      setSaving(false);
+    }
+  }, [token, date]);
+
+  const flushSave = useCallback(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    saveRecords(recordsRef.current);
+  }, [saveRecords]);
+
+  const scheduleSave = useCallback((recs: StockRecord[]) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => saveRecords(recs), 3000);
+  }, [saveRecords]);
+
+  const changeField = (productId: number, field: 'opening' | 'recv_dubai' | 'recv_umq' | 'dispatch', value: number) => {
+    const updated = records.map(r => {
+      if (r.product_id !== productId) return r;
+      const upd = { ...r, [field]: value };
+      upd.closing = upd.opening + upd.recv_dubai + upd.recv_umq - upd.dispatch;
+      return upd;
+    });
+    setRecords(updated);
+    recordsRef.current = updated;
+    scheduleSave(updated);
+  };
+
+  const handleSaveClose = async () => {
+    flushSave();
+    // Snapshot locked fields
+    const lf = new Set<string>();
+    for (const r of recordsRef.current) {
+      if (r.recv_dubai > 0) lf.add(`${r.product_id}_recv_dubai`);
+      if (r.recv_umq   > 0) lf.add(`${r.product_id}_recv_umq`);
+      if (r.dispatch   > 0) lf.add(`${r.product_id}_dispatch`);
+    }
+    setLockedFields(lf);
+    setIsLocked(true);
+    await fetch('/api/lock', {
+      method: 'POST',
+      headers: headers(token!),
+      body: JSON.stringify({ date }),
     });
   };
 
-  // Save immediately then navigate — ensures carry-forward is in DB before next day loads
-  const changeDate = async (delta: number) => {
-    await flushSave();
-    const d = new Date(selectedDate + 'T00:00:00');
-    d.setDate(d.getDate() + delta);
-    const nd = fmtDate(d);
-    setSelectedDate(nd);
-    setViewYear(d.getFullYear());
-    setViewMonth(d.getMonth());
-  };
-
-  const selectDate = async (date: string) => {
-    await flushSave();
-    setSelectedDate(date);
-    const d = new Date(date + 'T00:00:00');
-    setViewYear(d.getFullYear());
-    setViewMonth(d.getMonth());
-  };
-
-  // Day strip
-  const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-  const dayList = Array.from({ length: daysInMonth }, (_, i) => {
-    const d = new Date(viewYear, viewMonth, i + 1);
-    return { date: fmtDate(d), num: i + 1, day: DAYS[d.getDay()] };
-  });
-
-  // Totals
-  const tot = records.reduce((a, r) => ({
-    opening: a.opening + r.opening,
-    recv_dubai: a.recv_dubai + r.recv_dubai,
-    recv_umq: a.recv_umq + r.recv_umq,
-    dispatch: a.dispatch + r.dispatch,
-    closing: a.closing + r.closing,
-  }), { opening: 0, recv_dubai: 0, recv_umq: 0, dispatch: 0, closing: 0 });
-
-  // Group by category
-  const grouped = records.reduce<Array<{ cat: string; items: Array<{ rec: StockRecord; idx: number }> }>>((acc, rec, idx) => {
-    const g = acc.find(x => x.cat === rec.category);
-    if (g) g.items.push({ rec, idx });
-    else acc.push({ cat: rec.category, items: [{ rec, idx }] });
-    return acc;
-  }, []);
-
-  // Reset current day: zero out received + dispatched, keep opening
-  const resetDay = async () => {
-    setConfirmReset(false);
-    if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
-    const reset = records.map(r => ({
-      ...r,
-      recv_dubai: 0,
-      recv_umq:   0,
-      dispatch:   0,
-      closing:    r.opening,
-    }));
-    setRecords(reset);
-    recordsRef.current = reset;
-    setSaveStatus('saving');
-    try {
-      await saveStock(reset, user.username);
-      setSaveStatus('saved');
-      await loadFilledDays();
-      setTimeout(() => setSaveStatus('idle'), 2500);
-    } catch (e) {
-      console.error('Reset save failed:', e);
-      setSaveStatus('error');
-    }
-  };
-
-  // Save + Lock (Employee: saves immediately and locks the day)
-  const handleSave = async () => {
-    if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
-    setSaveStatus('saving');
-    try {
-      await saveStock(recordsRef.current, user.username);
-      if (user.role !== 'admin') {
-        await lockDay(selectedDate, user.username);
-        setIsLocked(true);
-        // Snapshot: only cells with value > 0 at this moment get locked
-        const snap: Record<number, { recv_dubai: boolean; recv_umq: boolean; dispatch: boolean }> = {};
-        recordsRef.current.forEach((r, i) => { snap[i] = { recv_dubai: r.recv_dubai > 0, recv_umq: r.recv_umq > 0, dispatch: r.dispatch > 0 }; });
-        setLockedFields(snap);
-      }
-      setSaveStatus('saved');
-      await loadFilledDays();
-      setTimeout(() => setSaveStatus('idle'), 2500);
-    } catch (e) {
-      console.error('Save failed:', e);
-      setSaveStatus('error');
-    }
-  };
-
-  // Unlock (Admin only)
   const handleUnlock = async () => {
-    await unlockDay(selectedDate);
+    await fetch(`/api/lock?date=${date}`, { method: 'DELETE', headers: headers(token!) });
     setIsLocked(false);
-    setLockedFields({});
+    setLockedFields(new Set());
   };
 
-  // PDF export
-  const exportPDF = async () => {
-    const d = new Date(selectedDate + 'T00:00:00');
-    const mName = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
-    const title = `${d.getDate()} ${mName} ${d.getFullYear()}`;
-    const payload = { type: 'daily', output: `/tmp/daily_${selectedDate}.pdf`, title, records };
-    try {
-      await window.tasklet.writeFileToDisk('/tmp/pdf_in.json', JSON.stringify(payload));
-      const r = await window.tasklet.runCommand(
-        `uv run --with fpdf2 python3 /tasklet/agent/home/apps/abudhabi-warehouse-tracker/generate_pdf.py < /tmp/pdf_in.json`
+  const handleReset = async () => {
+    const updated = records.map(r => ({
+      ...r, recv_dubai: 0, recv_umq: 0, dispatch: 0, closing: r.opening,
+    }));
+    setRecords(updated);
+    recordsRef.current = updated;
+    await saveRecords(updated);
+    setShowReset(false);
+  };
+
+  const handleDateChange = (delta: number) => {
+    flushSave();
+    const d = new Date(date + 'T00:00:00');
+    d.setDate(d.getDate() + delta);
+    setDate(fmtDate(d));
+  };
+
+  const dayNum = dayOfYear(new Date(date + 'T00:00:00'));
+  const dateObj = new Date(date + 'T00:00:00');
+  const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
+  const fullDate = dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // Tab navigation
+  const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const editableFields = isAdmin
+    ? ['opening', 'recv_dubai', 'recv_umq', 'dispatch']
+    : ['recv_dubai', 'recv_umq', 'dispatch'];
+
+  const handleKeyDown = (e: React.KeyboardEvent, productId: number, field: string) => {
+    const allProducts = records.map(r => r.product_id);
+    const fields = editableFields;
+    const pIdx = allProducts.indexOf(productId);
+    const fIdx = fields.indexOf(field);
+
+    if (e.key === 'Tab' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      const nextF = fields[fIdx + 1];
+      const nextP = nextF ? productId : allProducts[pIdx + 1];
+      const nextField = nextF || fields[0];
+      if (nextP || nextF) {
+        const key = `${nextP || allProducts[pIdx + 1]}_${nextField}`;
+        inputRefs.current[key]?.focus();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prevF = fields[fIdx - 1];
+      if (prevF) inputRefs.current[`${productId}_${prevF}`]?.focus();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      const nextP = allProducts[pIdx + 1];
+      if (nextP) inputRefs.current[`${nextP}_${field}`]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      const prevP = allProducts[pIdx - 1];
+      if (prevP) inputRefs.current[`${prevP}_${field}`]?.focus();
+    }
+  };
+
+  const grouped = CATEGORIES.map(cat => ({
+    cat,
+    rows: records.filter(r => r.category === cat),
+  }));
+
+  const totals = {
+    opening:    records.reduce((s, r) => s + r.opening,    0),
+    recv_dubai: records.reduce((s, r) => s + r.recv_dubai, 0),
+    recv_umq:   records.reduce((s, r) => s + r.recv_umq,   0),
+    dispatch:   records.reduce((s, r) => s + r.dispatch,   0),
+    closing:    records.reduce((s, r) => s + r.closing,    0),
+  };
+
+  const cellVal = (v: number) =>
+    v === 0 ? <span style={{ color: '#ef4444', fontWeight: 700 }}>0</span>
+             : <span>{v.toLocaleString()}</span>;
+
+  const renderInput = (r: StockRecord, field: 'opening' | 'recv_dubai' | 'recv_umq' | 'dispatch') => {
+    const key = `${r.product_id}_${field}`;
+    const val = r[field];
+    const canEdit = isAdmin || (field !== 'opening');
+    const fieldLocked = isLocked && lockedFields.has(key);
+
+    if (!canEdit || fieldLocked) {
+      return (
+        <span style={{ fontWeight: fieldLocked ? 700 : 400, color: val === 0 ? '#ef4444' : '#e2e8f0' }}>
+          {val.toLocaleString()}
+        </span>
       );
-      if (r.exitCode !== 0) throw new Error(r.log);
-      const b64 = await window.tasklet.runCommand(`base64 /tmp/daily_${selectedDate}.pdf`);
-      const link = document.createElement('a');
-      link.href = `data:application/pdf;base64,${b64.log.trim()}`;
-      link.download = `NaturalIce_Abu_Dhabi_Daily_${selectedDate}.pdf`;
-      link.click();
-    } catch (e) { console.error('PDF export failed:', e); }
-  };
+    }
 
-  const dateObj = new Date(selectedDate + 'T00:00:00');
-  const isToday = selectedDate === today;
+    return (
+      <input
+        ref={el => { inputRefs.current[key] = el; }}
+        type="number"
+        min={0}
+        value={val === 0 ? '' : val}
+        placeholder="0"
+        onChange={e => changeField(r.product_id, field, parseInt(e.target.value) || 0)}
+        onKeyDown={e => handleKeyDown(e, r.product_id, field)}
+        onFocus={e => e.target.select()}
+        className="stock-input"
+        style={{ color: val === 0 ? '#ef4444' : '#e2e8f0', fontWeight: val === 0 ? 700 : 400 }}
+      />
+    );
+  };
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
-
-      {/* ── Top header ───────────────────────────────────────── */}
-      <div className="bg-base-200 border-b border-base-300 px-5 py-3 flex items-center justify-between gap-4 flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <button onClick={() => changeDate(-1)} className="btn btn-ghost btn-sm btn-circle"><ChevronLeft size={16} /></button>
-          <div className="text-center select-none">
-            <div className="flex items-center justify-center gap-2">
-              <span className="font-bold text-base-content text-base leading-tight">
-                {dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-              </span>
-              <span className="badge badge-neutral badge-sm font-bold">Day {dateObj.getDate()}</span>
-              {isToday && <span className="badge badge-primary badge-sm">Today</span>}
-              {isLocked && <span className="badge badge-warning badge-sm gap-1"><Lock size={10} />Locked</span>}
-            </div>
+    <div className="p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <div>
+          <div className="flex items-center gap-3">
+            <h1 className="text-xl font-bold text-white">Daily Stock Entry</h1>
+            <span className="text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: '#0d9488', color: '#fff' }}>
+              Day {dayNum}
+            </span>
+            {isLocked && (
+              <span className="locked-badge">🔒 Locked</span>
+            )}
           </div>
-          <button onClick={() => changeDate(1)} className="btn btn-ghost btn-sm btn-circle"><ChevronRight size={16} /></button>
+          <p className="text-slate-400 text-sm mt-0.5">{dayName}, {fullDate}</p>
         </div>
 
+        {/* Date nav */}
         <div className="flex items-center gap-2">
-          {saveStatus === 'saving' && <span className="text-xs text-base-content/40 flex items-center gap-1"><Clock size={11} />Saving…</span>}
-          {saveStatus === 'saved'  && <span className="text-xs text-success flex items-center gap-1"><CheckCircle size={11} />Saved</span>}
-          {saveStatus === 'error'  && <span className="text-xs text-error flex items-center gap-1"><AlertCircle size={11} />Error</span>}
-          <button onClick={() => loadRecords(selectedDate)} className="btn btn-ghost btn-sm btn-circle" title="Reload">
-            <RefreshCw size={13} />
+          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all">‹</button>
+          <input
+            type="date"
+            value={date}
+            onChange={e => { flushSave(); setDate(e.target.value); }}
+            className="text-sm text-white px-3 py-1.5 rounded-lg border focus:outline-none focus:ring-1 focus:ring-teal-500"
+            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}
+          />
+          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all">›</button>
+          <button onClick={() => { flushSave(); setDate(fmtDate(new Date())); }}
+            className="text-xs px-3 py-1.5 rounded-lg text-teal-400 border border-teal-500/30 hover:bg-teal-500/10 transition-all">
+            Today
           </button>
-          {/* Save & Close — always active so employee can re-lock after filling zero cells */}
-          <button
-            onClick={handleSave}
-            className="btn btn-success btn-sm gap-1.5 text-white"
-            title={user.role !== 'admin' ? 'Save and lock filled columns' : 'Save now'}
-          >
-            <Save size={13} />{user.role !== 'admin' ? 'Save & Close' : 'Save Now'}
-          </button>
-          {/* Unlock — admin only */}
-          {isLocked && user.role === 'admin' && (
-            <button
-              onClick={handleUnlock}
-              className="btn btn-outline btn-sm gap-1.5 border-warning/60 text-warning hover:bg-warning hover:text-white"
-            >
-              <Unlock size={13} />Unlock
+        </div>
+
+        {/* Action buttons */}
+        <div className="flex items-center gap-2">
+          {saving && <span className="text-xs text-slate-500 animate-pulse">Saving…</span>}
+          {saved  && <span className="text-xs text-teal-400">✓ Saved</span>}
+
+          {!isAdmin && (
+            <button onClick={handleSaveClose}
+              className="text-sm font-medium px-4 py-2 rounded-lg transition-all"
+              style={{ background: '#0d9488', color: '#fff' }}>
+              💾 Save &amp; Close
             </button>
           )}
-          {/* Reset Day — hidden when locked for employees */}
-          {!(isLocked && user.role !== 'admin') && (
-            <button
-              onClick={() => setConfirmReset(true)}
-              className="btn btn-outline btn-sm gap-1.5 border-error/40 text-error hover:bg-error hover:text-white"
-              title="Reset today's entries to zero"
-            >
-              <RotateCcw size={13} />Reset Day
+
+          {isAdmin && isLocked && (
+            <button onClick={handleUnlock}
+              className="text-sm px-3 py-2 rounded-lg border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition-all">
+              🔓 Unlock
             </button>
           )}
-          <button onClick={exportPDF} className="btn btn-outline btn-sm gap-1.5 border-primary/30 text-primary hover:bg-primary hover:text-primary-content">
-            <FileDown size={13} />Export PDF
-          </button>
+
+          {isAdmin && !isLocked && (
+            <button onClick={() => setShowReset(true)}
+              className="text-sm px-3 py-2 rounded-lg border text-red-400 border-red-500/30 hover:bg-red-500/10 transition-all">
+              Reset Day
+            </button>
+          )}
         </div>
       </div>
 
-      {/* ── Reset confirmation modal ─────────────────────── */}
-      {confirmReset && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="bg-base-100 rounded-2xl shadow-2xl p-6 w-80 flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">⚠️</span>
-              <div>
-                <div className="font-bold text-base-content text-base">Reset This Day?</div>
-                <div className="text-sm text-base-content/60 mt-0.5">
-                  This will set all <span className="font-semibold text-error">Received &amp; Dispatched</span> values to <span className="font-semibold">0</span> for this day. Opening stock stays as-is.
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-2 justify-end">
-              <button onClick={() => setConfirmReset(false)} className="btn btn-ghost btn-sm">Cancel</button>
-              <button onClick={resetDay} className="btn btn-error btn-sm gap-1.5 text-white">
-                <RotateCcw size={13} />Yes, Reset
-              </button>
+      {/* Reset confirm */}
+      {showReset && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="rounded-2xl p-6 max-w-sm w-full mx-4 text-center" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
+            <div className="text-3xl mb-3">⚠️</div>
+            <h3 className="text-white font-semibold mb-2">Reset Day?</h3>
+            <p className="text-slate-400 text-sm mb-5">This will zero out all movements. Opening stock stays.</p>
+            <div className="flex gap-3 justify-center">
+              <button onClick={() => setShowReset(false)} className="px-4 py-2 rounded-lg text-sm text-slate-300 border border-slate-600 hover:bg-white/5">Cancel</button>
+              <button onClick={handleReset} className="px-4 py-2 rounded-lg text-sm text-white bg-red-600 hover:bg-red-700">Reset</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* ── Month navigation + Day strip ─────────────────────── */}
-      <div className="bg-base-200 border-b border-base-300 px-4 pt-2 pb-2 flex-shrink-0">
-        <div className="flex items-center gap-2 mb-2">
-          <button
-            onClick={() => { const pm = viewMonth === 0; setViewMonth(pm ? 11 : viewMonth - 1); if (pm) setViewYear(y => y - 1); }}
-            className="btn btn-ghost btn-xs btn-circle"
-          ><ChevronLeft size={12} /></button>
-          <span className="text-xs font-bold text-base-content/70 w-36 text-center">{MONTHS[viewMonth]} {viewYear}</span>
-          <button
-            onClick={() => { const nm = viewMonth === 11; setViewMonth(nm ? 0 : viewMonth + 1); if (nm) setViewYear(y => y + 1); }}
-            className="btn btn-ghost btn-xs btn-circle"
-          ><ChevronRight size={12} /></button>
-          <span className="ml-2 text-xs text-base-content/30">{filledDays.length}/{daysInMonth} days entered</span>
+      {loading ? (
+        <div className="flex items-center justify-center h-64">
+          <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
         </div>
-
-        <div className="flex gap-1 overflow-x-auto pb-1 scroll-smooth">
-          {dayList.map(({ date, num, day }) => {
-            const sel = date === selectedDate;
-            const filled = filledDays.includes(date);
-            const tod = date === today;
-            return (
-              <button
-                key={date}
-                onClick={() => selectDate(date)}
-                className={`flex-shrink-0 flex flex-col items-center px-2 py-1 rounded-lg transition-all min-w-[34px] ${
-                  sel    ? 'bg-primary text-primary-content shadow-md scale-105' :
-                  filled ? 'bg-success/15 text-success hover:bg-success/25' :
-                  tod    ? 'bg-base-300 text-base-content ring-1 ring-primary/40' :
-                           'hover:bg-base-300 text-base-content/40 hover:text-base-content/70'
-                }`}
-              >
-                <span className="font-medium opacity-60" style={{fontSize:'8px'}}>{day}</span>
-                <span className="font-bold text-xs">{num}</span>
-                {filled && !sel && <span className="w-1 h-1 rounded-full bg-success" />}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ── Stats bar ────────────────────────────────────────── */}
-      <div className="grid grid-cols-5 divide-x divide-base-300 border-b border-base-300 flex-shrink-0 bg-base-200">
-        {[
-          { label: 'Opening',    value: tot.opening,    cls: 'text-base-content' },
-          { label: 'Recv Dubai', value: tot.recv_dubai, cls: 'text-info' },
-          { label: 'Recv UMQ',   value: tot.recv_umq,   cls: 'text-info' },
-          { label: 'Dispatch',   value: tot.dispatch,   cls: 'text-warning' },
-          { label: 'Closing',    value: tot.closing,    cls: 'text-success' },
-        ].map(s => (
-          <div key={s.label} className="py-2 px-3 text-center">
-            <div className={`text-xl font-extrabold tabular-nums ${s.cls}`}>{s.value.toLocaleString()}</div>
-            <div className="text-xs text-base-content/40 font-medium">{s.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Table ────────────────────────────────────────────── */}
-      <div className="flex-1 overflow-auto">
-        {loading ? (
-          <div className="flex items-center justify-center h-40 gap-3 text-base-content/40">
-            <span className="loading loading-spinner loading-md text-primary" />
-            <span className="text-sm">Loading stock data…</span>
-          </div>
-        ) : records.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-40 gap-2 text-base-content/30">
-            <Package size={32} />
-            <span className="text-sm">No products configured</span>
-          </div>
-        ) : (
-          <table className="table table-sm w-full">
-            <thead className="sticky top-0 z-10 bg-base-200 border-b border-base-300">
-              <tr>
-                <th className="text-left text-xs font-semibold text-base-content/50 pl-4 py-2 w-64">Product</th>
-                {['Opening','Recv Dubai','Recv UMQ','Dispatch','Closing'].map(h => (
-                  <th key={h} className="text-center text-xs font-semibold text-base-content/50 py-2 w-24">{h}</th>
+      ) : (
+        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr style={{ background: '#0A1628' }}>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide w-48">Product</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#60a5fa' }}>Opening</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#34d399' }}>Recv Dubai</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#a78bfa' }}>Recv UMQ</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#fb923c' }}>Dispatch</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#facc15' }}>Closing</th>
+                </tr>
+              </thead>
+              <tbody>
+                {grouped.map(({ cat, rows }, gi) => (
+                  rows.length > 0 && (
+                    <>
+                      {/* Category header */}
+                      <tr key={`cat-${gi}`}>
+                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
+                          style={{ background: CAT_COLORS[cat] + '25', color: CAT_COLORS[cat], borderTop: `2px solid ${CAT_COLORS[cat]}40` }}>
+                          {cat}
+                        </td>
+                      </tr>
+                      {rows.map((r, ri) => (
+                        <tr key={r.product_id}
+                          style={{ background: ri % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}
+                          className="hover:bg-white/5 transition-colors">
+                          <td className="px-4 py-2 text-xs font-medium text-slate-300">{r.product_name}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
+                          <td className="px-2 py-2 text-center text-sm font-semibold">
+                            {cellVal(r.closing)}
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  )
                 ))}
-              </tr>
-            </thead>
-            <tbody>
-              {grouped.map(({ cat, items }) => (
-                <React.Fragment key={cat}>
-                  {/* Category header */}
-                  <tr className="border-b border-base-300">
-                    <td colSpan={6} className="py-1.5 px-4 bg-base-300/50">
-                      <span className={`text-xs font-bold uppercase tracking-widest ${catColor(cat)}`}>
-                        {cat.replace(/\u2014|\u2013/g, '–')}
-                      </span>
+
+                {/* Totals row */}
+                <tr style={{ background: '#d97706', borderTop: '2px solid #f59e0b' }}>
+                  <td className="px-4 py-2.5 text-xs font-bold text-white uppercase tracking-wide">TOTALS</td>
+                  {(['opening','recv_dubai','recv_umq','dispatch','closing'] as const).map(f => (
+                    <td key={f} className="px-3 py-2.5 text-center text-sm font-bold text-white">
+                      {totals[f].toLocaleString()}
                     </td>
-                  </tr>
-                  {items.map(({ rec, idx }) => (
-                    <tr key={rec.product} className="hover:bg-base-200/60 border-b border-base-300/40 transition-colors group">
-                      <td className="pl-4 text-sm font-medium text-base-content/80 py-1.5 w-64">{rec.product}</td>
-
-                      {/* Opening: read-only for employees, editable for admin */}
-                      <td className="text-center p-0.5 w-24">
-                        {user.role !== 'admin' ? (
-                          <span className={`block w-full text-center text-sm tabular-nums py-1${rec.opening === 0 ? ' text-error font-bold' : ''}`}>{rec.opening}</span>
-                        ) : (
-                          <input
-                            type="number" min={0}
-                            className={`w-full text-center bg-transparent border border-transparent hover:border-base-content/20 focus:border-primary focus:bg-base-100 rounded-md px-1 py-1 text-sm tabular-nums outline-none transition-all${rec.opening === 0 ? ' text-error font-semibold' : ''}`}
-                            value={rec.opening === 0 ? 0 : rec.opening}
-                            placeholder="0"
-                            onChange={e => updateCell(idx, 'opening', Number(e.target.value) || 0)}
-                            onFocus={e => e.target.select()}
-                          />
-                        )}
-                      </td>
-
-                      {/* recv_dubai — lock cell only if value > 0 and day is closed (employee) */}
-                      <td className="text-center p-0.5 w-24">
-                        {isLocked && user.role !== 'admin' && lockedFields[idx]?.recv_dubai ? (
-                          <span className="block w-full text-center text-sm tabular-nums text-info font-semibold py-1">{rec.recv_dubai}</span>
-                        ) : (
-                          <input
-                            type="number" min={0}
-                            className="w-full text-center bg-transparent border border-transparent hover:border-base-content/20 focus:border-info focus:bg-base-100 rounded-md px-1 py-1 text-sm tabular-nums text-info outline-none transition-all"
-                            value={rec.recv_dubai === 0 ? '' : rec.recv_dubai}
-                            placeholder="0"
-                            onChange={e => updateCell(idx, 'recv_dubai', Number(e.target.value) || 0)}
-                            onFocus={e => e.target.select()}
-                          />
-                        )}
-                      </td>
-
-                      {/* recv_umq — lock cell only if value > 0 and day is closed (employee) */}
-                      <td className="text-center p-0.5 w-24">
-                        {isLocked && user.role !== 'admin' && lockedFields[idx]?.recv_umq ? (
-                          <span className="block w-full text-center text-sm tabular-nums text-info font-semibold py-1">{rec.recv_umq}</span>
-                        ) : (
-                          <input
-                            type="number" min={0}
-                            className="w-full text-center bg-transparent border border-transparent hover:border-base-content/20 focus:border-info focus:bg-base-100 rounded-md px-1 py-1 text-sm tabular-nums text-info outline-none transition-all"
-                            value={rec.recv_umq === 0 ? '' : rec.recv_umq}
-                            placeholder="0"
-                            onChange={e => updateCell(idx, 'recv_umq', Number(e.target.value) || 0)}
-                            onFocus={e => e.target.select()}
-                          />
-                        )}
-                      </td>
-
-                      {/* dispatch — lock cell only if value > 0 and day is closed (employee) */}
-                      <td className="text-center p-0.5 w-24">
-                        {isLocked && user.role !== 'admin' && lockedFields[idx]?.dispatch ? (
-                          <span className="block w-full text-center text-sm tabular-nums text-warning font-semibold py-1">{rec.dispatch}</span>
-                        ) : (
-                          <input
-                            type="number" min={0}
-                            className="w-full text-center bg-transparent border border-transparent hover:border-base-content/20 focus:border-warning focus:bg-base-100 rounded-md px-1 py-1 text-sm tabular-nums text-warning outline-none transition-all"
-                            value={rec.dispatch === 0 ? '' : rec.dispatch}
-                            placeholder="0"
-                            onChange={e => updateCell(idx, 'dispatch', Number(e.target.value) || 0)}
-                            onFocus={e => e.target.select()}
-                          />
-                        )}
-                      </td>
-
-                      {/* Read-only: closing (auto-calculated) */}
-                      <td className="text-center w-24 py-1">
-                        <span className={`text-sm font-bold tabular-nums ${rec.closing > 0 ? 'text-success' : 'text-error'}`}>
-                          {rec.closing}
-                        </span>
-                      </td>
-                    </tr>
                   ))}
-                </React.Fragment>
-              ))}
-
-              {/* Grand total row */}
-              <tr className="border-t-2 border-primary/30 bg-primary/5 font-bold">
-                <td className="pl-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary">Grand Total</td>
-                <td className="text-center text-sm tabular-nums text-base-content">{tot.opening.toLocaleString()}</td>
-                <td className="text-center text-sm tabular-nums text-info">{tot.recv_dubai.toLocaleString()}</td>
-                <td className="text-center text-sm tabular-nums text-info">{tot.recv_umq.toLocaleString()}</td>
-                <td className="text-center text-sm tabular-nums text-warning">{tot.dispatch.toLocaleString()}</td>
-                <td className="text-center text-sm tabular-nums text-success">{tot.closing.toLocaleString()}</td>
-              </tr>
-            </tbody>
-          </table>
-        )}
-      </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}

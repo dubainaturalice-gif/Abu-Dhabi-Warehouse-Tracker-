@@ -1,170 +1,227 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, FileDown, BarChart3, RefreshCw } from 'lucide-react';
-import { StockRecord } from '../types';
-import { getMonthlyData } from '../utils/db';
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import { useAuth } from './AuthContext';
+import { MonthlyProductSummary } from '@/types';
 
-interface MonthlySummaryProps {}
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const CATEGORIES = ['ICE PRODUCTS — FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
+const CAT_COLORS: Record<string, string> = {
+  'ICE PRODUCTS — FROM DUBAI': '#0d9488',
+  'JELAT ICE CREAM': '#7c3aed',
+  'ICE POP': '#f97316',
+};
 
-const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const MSHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-export const MonthlySummary: React.FC<MonthlySummaryProps> = () => {
+export default function MonthlySummary() {
+  const { token } = useAuth();
   const now = new Date();
-  const [year, setYear]   = useState(now.getFullYear());
-  const [month, setMonth] = useState(now.getMonth() + 1); // 1-indexed
-  const [records, setRecords] = useState<StockRecord[]>([]);
+  const [year,  setYear]  = useState(now.getFullYear());
+  const [month, setMonth] = useState(now.getMonth() + 1);
+  const [data,  setData]  = useState<MonthlyProductSummary[]>([]);
   const [loading, setLoading] = useState(false);
 
   const load = useCallback(async () => {
+    if (!token) return;
     setLoading(true);
     try {
-      const data = await getMonthlyData(year, month);
-      setRecords(data);
-    } catch (e) { console.error('Monthly load failed:', e); }
-    finally { setLoading(false); }
-  }, [year, month]);
+      const res = await fetch(`/api/monthly?year=${year}&month=${month}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setData(await res.json());
+    } finally { setLoading(false); }
+  }, [token, year, month]);
 
   useEffect(() => { load(); }, [load]);
 
-  const prevMonth = () => {
-    if (month === 1) { setMonth(12); setYear(y => y - 1); }
-    else setMonth(m => m - 1);
+  const totals = {
+    opening:          data.reduce((s, r) => s + r.opening,          0),
+    total_recv_dubai: data.reduce((s, r) => s + r.total_recv_dubai, 0),
+    total_recv_umq:   data.reduce((s, r) => s + r.total_recv_umq,   0),
+    total_dispatch:   data.reduce((s, r) => s + r.total_dispatch,   0),
+    closing:          data.reduce((s, r) => s + r.closing,          0),
   };
-  const nextMonth = () => {
-    if (month === 12) { setMonth(1); setYear(y => y + 1); }
-    else setMonth(m => m + 1);
-  };
 
-  // Group by category
-  const grouped = records.reduce<Array<{ cat: string; items: StockRecord[] }>>((acc, rec) => {
-    const g = acc.find(x => x.cat === rec.category);
-    if (g) g.items.push(rec);
-    else acc.push({ cat: rec.category, items: [rec] });
-    return acc;
-  }, []);
+  const zeroRed = (v: number) =>
+    v === 0 ? <span style={{ color: '#ef4444', fontWeight: 700 }}>0</span>
+             : <span>{v.toLocaleString()}</span>;
 
-  const tot = records.reduce((a, r) => ({
-    opening: a.opening + r.opening,
-    recv_dubai: a.recv_dubai + r.recv_dubai,
-    recv_umq: a.recv_umq + r.recv_umq,
-    dispatch: a.dispatch + r.dispatch,
-    closing: a.closing + r.closing,
-  }), { opening: 0, recv_dubai: 0, recv_umq: 0, dispatch: 0, closing: 0 });
+  const handlePDF = async () => {
+    const { default: jsPDF } = await import('jspdf');
+    const { default: autoTable } = await import('jspdf-autotable');
+    const doc = new jsPDF({ orientation: 'landscape' });
 
-  const exportPDF = async () => {
-    const title = `${MSHORT[month - 1]} ${year} - Monthly Summary`;
-    const payload = { type: 'monthly', output: `/tmp/monthly_${year}_${month}.pdf`, title, records };
-    try {
-      await window.tasklet.writeFileToDisk('/tmp/pdf_in.json', JSON.stringify(payload));
-      const r = await window.tasklet.runCommand(
-        `uv run --with fpdf2 python3 /tasklet/agent/home/apps/abudhabi-warehouse-tracker/generate_pdf.py < /tmp/pdf_in.json`
-      );
-      if (r.exitCode !== 0) throw new Error(r.log);
-      const b64 = await window.tasklet.runCommand(`base64 /tmp/monthly_${year}_${month}.pdf`);
-      const link = document.createElement('a');
-      link.href = `data:application/pdf;base64,${b64.log.trim()}`;
-      link.download = `NaturalIce_Monthly_${year}_${String(month).padStart(2,'0')}.pdf`;
-      link.click();
-    } catch (e) { console.error('PDF export failed:', e); }
+    // Header
+    doc.setFillColor(10, 22, 40);
+    doc.rect(0, 0, 297, 25, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica','bold');
+    doc.text('ABU DHABI WAREHOUSE — MONTHLY SUMMARY', 15, 12);
+    doc.setFontSize(10);
+    doc.setFont('helvetica','normal');
+    doc.setTextColor(148,163,184);
+    doc.text(`${MONTH_NAMES[month-1]} ${year}`, 15, 20);
+    doc.text(`Generated: ${new Date().toLocaleString()}`, 297 - 15, 20, { align: 'right' });
+
+    // KPI row
+    const kpis = [
+      { label: 'Opening Stock', value: totals.opening, color: [59,130,246] as [number,number,number] },
+      { label: 'Recv Dubai', value: totals.total_recv_dubai, color: [20,184,166] as [number,number,number] },
+      { label: 'Recv UMQ', value: totals.total_recv_umq, color: [124,58,237] as [number,number,number] },
+      { label: 'Dispatched', value: totals.total_dispatch, color: [249,115,22] as [number,number,number] },
+      { label: 'Closing Stock', value: totals.closing, color: [217,119,6] as [number,number,number] },
+    ];
+    const kw = (297 - 30) / kpis.length;
+    kpis.forEach((k, i) => {
+      const x = 15 + i * kw;
+      doc.setFillColor(...k.color);
+      doc.roundedRect(x, 30, kw - 4, 18, 2, 2, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(7);
+      doc.setFont('helvetica','normal');
+      doc.text(k.label, x + (kw - 4)/2, 36, { align: 'center' });
+      doc.setFontSize(12);
+      doc.setFont('helvetica','bold');
+      doc.text(k.value.toLocaleString(), x + (kw - 4)/2, 44, { align: 'center' });
+    });
+
+    // Table per category
+    let startY = 54;
+    for (const cat of CATEGORIES) {
+      const rows = data.filter(r => r.category === cat);
+      if (!rows.length) continue;
+      const rgb = cat === 'ICE PRODUCTS — FROM DUBAI' ? [13,148,136] : cat === 'JELAT ICE CREAM' ? [124,58,237] : [249,115,22];
+      doc.setFillColor(...(rgb as [number,number,number]));
+      doc.rect(15, startY, 267, 7, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(8);
+      doc.setFont('helvetica','bold');
+      doc.text(cat, 18, startY + 5);
+      startY += 7;
+
+      autoTable(doc, {
+        startY,
+        head: [['Product', 'Opening', 'Recv Dubai', 'Recv UMQ', 'Dispatched', 'Closing']],
+        body: rows.map(r => [r.product_name, r.opening, r.total_recv_dubai, r.total_recv_umq, r.total_dispatch, r.closing]),
+        theme: 'grid',
+        styles: { fontSize: 8, cellPadding: 2, textColor: [30,41,59], halign: 'center' },
+        headStyles: { fillColor: [15,31,54], textColor: [148,163,184], fontStyle: 'bold' },
+        columnStyles: { 0: { halign: 'left', cellWidth: 50 } },
+        alternateRowStyles: { fillColor: [240,253,252] },
+        margin: { left: 15, right: 15 },
+      });
+      startY = (doc as any).lastAutoTable.finalY + 6;
+    }
+
+    doc.save(`warehouse-monthly-${year}-${String(month).padStart(2,'0')}.pdf`);
   };
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
-
+    <div className="p-6">
       {/* Header */}
-      <div className="bg-base-200 border-b border-base-300 px-5 py-3 flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <BarChart3 size={18} className="text-primary" />
-          <div className="flex items-center gap-2 ml-1">
-            <button onClick={prevMonth} className="btn btn-ghost btn-sm btn-circle"><ChevronLeft size={15} /></button>
-            <div className="text-center w-40">
-              <div className="font-bold text-base-content text-base">{MONTHS[month - 1]} {year}</div>
-              <div className="text-xs text-base-content/40">Monthly Report</div>
-            </div>
-            <button onClick={nextMonth} className="btn btn-ghost btn-sm btn-circle"><ChevronRight size={15} /></button>
-          </div>
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <div>
+          <h1 className="text-xl font-bold text-white">Monthly Summary</h1>
+          <p className="text-slate-400 text-sm mt-0.5">{MONTH_NAMES[month-1]} {year}</p>
         </div>
-        <div className="flex gap-2">
-          <button onClick={load} className="btn btn-ghost btn-sm btn-circle" title="Reload"><RefreshCw size={13} /></button>
-          <button onClick={exportPDF} className="btn btn-outline btn-sm gap-1.5 border-primary/30 text-primary hover:bg-primary hover:text-primary-content">
-            <FileDown size={13} />Export PDF
+        <div className="flex items-center gap-2">
+          <select value={month} onChange={e => setMonth(+e.target.value)}
+            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
+            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            {MONTH_NAMES.map((n, i) => <option key={i} value={i+1}>{n}</option>)}
+          </select>
+          <select value={year} onChange={e => setYear(+e.target.value)}
+            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
+            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            {[2024,2025,2026,2027,2028].map(y => <option key={y} value={y}>{y}</option>)}
+          </select>
+          <button onClick={handlePDF}
+            className="text-sm font-medium px-4 py-2 rounded-lg transition-all"
+            style={{ background: '#0d9488', color: '#fff' }}>
+            📄 Export PDF
           </button>
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-5 divide-x divide-base-300 border-b border-base-300 flex-shrink-0 bg-base-200">
+      {/* KPI Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
         {[
-          { label: 'Opening',    value: tot.opening,    cls: tot.opening === 0 ? 'text-error' : 'text-base-content' },
-          { label: 'Recv Dubai', value: tot.recv_dubai, cls: 'text-info' },
-          { label: 'Recv UMQ',   value: tot.recv_umq,   cls: 'text-info' },
-          { label: 'Dispatch',   value: tot.dispatch,   cls: 'text-warning' },
-          { label: 'Closing',    value: tot.closing,    cls: tot.closing === 0 ? 'text-error' : 'text-success' },
-        ].map(s => (
-          <div key={s.label} className="py-2 px-3 text-center">
-            <div className={`text-xl font-extrabold tabular-nums ${s.cls}`}>{s.value.toLocaleString()}</div>
-            <div className="text-xs text-base-content/40 font-medium">{s.label}</div>
+          { label: 'Opening Stock', val: totals.opening,          color: '#3b82f6', icon: '📦' },
+          { label: 'Recv Dubai',    val: totals.total_recv_dubai, color: '#14b8a6', icon: '🚚' },
+          { label: 'Recv UMQ',      val: totals.total_recv_umq,   color: '#a78bfa', icon: '📥' },
+          { label: 'Dispatched',    val: totals.total_dispatch,   color: '#f97316', icon: '📤' },
+          { label: 'Closing Stock', val: totals.closing,          color: '#f59e0b', icon: '🏁' },
+        ].map(k => (
+          <div key={k.label} className="rounded-xl p-4" style={{ background: '#0f1f36', border: `1px solid ${k.color}30` }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span>{k.icon}</span>
+              <span className="text-xs text-slate-400">{k.label}</span>
+            </div>
+            <div className="text-xl font-bold" style={{ color: k.val === 0 ? '#ef4444' : k.color }}>
+              {k.val.toLocaleString()}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Table */}
-      <div className="flex-1 overflow-auto">
-        {loading ? (
-          <div className="flex items-center justify-center h-40 gap-3 text-base-content/40">
-            <span className="loading loading-spinner loading-md text-primary" />
-            <span className="text-sm">Loading monthly data…</span>
-          </div>
-        ) : records.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-40 gap-2 text-base-content/30">
-            <BarChart3 size={32} />
-            <span className="text-sm">No data for {MONTHS[month - 1]} {year}</span>
-            <span className="text-xs">Enter daily stock to see monthly totals</span>
-          </div>
-        ) : (
-          <table className="table table-sm w-full">
-            <thead className="sticky top-0 z-10 bg-base-200 border-b border-base-300">
-              <tr>
-                <th className="text-left text-xs font-semibold text-base-content/50 pl-4 py-2">Product</th>
-                {['Opening','Recv Dubai','Recv UMQ','Dispatch','Closing'].map(h => (
-                  <th key={h} className="text-center text-xs font-semibold text-base-content/50 py-2 w-24">{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {grouped.map(({ cat, items }) => (
-                <React.Fragment key={cat}>
-                  <tr className="border-b border-base-300">
-                    <td colSpan={6} className="py-1.5 px-4 bg-base-300/50">
-                      <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                        {cat.replace(/\u2014|\u2013/g, '–')}
-                      </span>
+      {loading ? (
+        <div className="flex items-center justify-center h-48">
+          <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+      ) : (
+        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr style={{ background: '#0A1628' }}>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Product</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#60a5fa' }}>Opening</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#34d399' }}>Recv Dubai</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#a78bfa' }}>Recv UMQ</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#fb923c' }}>Dispatched</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#facc15' }}>Closing</th>
+                </tr>
+              </thead>
+              <tbody>
+                {CATEGORIES.map((cat, gi) => {
+                  const rows = data.filter(r => r.category === cat);
+                  if (!rows.length) return null;
+                  return (
+                    <>
+                      <tr key={`cat-${gi}`}>
+                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
+                          style={{ background: CAT_COLORS[cat] + '25', color: CAT_COLORS[cat], borderTop: `2px solid ${CAT_COLORS[cat]}40` }}>
+                          {cat}
+                        </td>
+                      </tr>
+                      {rows.map((r, ri) => (
+                        <tr key={r.product_id}
+                          style={{ background: ri % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}>
+                          <td className="px-4 py-2.5 text-xs font-medium text-slate-300">{r.product_name}</td>
+                          <td className="px-3 py-2.5 text-center">{zeroRed(r.opening)}</td>
+                          <td className="px-3 py-2.5 text-center">{zeroRed(r.total_recv_dubai)}</td>
+                          <td className="px-3 py-2.5 text-center">{zeroRed(r.total_recv_umq)}</td>
+                          <td className="px-3 py-2.5 text-center">{zeroRed(r.total_dispatch)}</td>
+                          <td className="px-3 py-2.5 text-center font-semibold">{zeroRed(r.closing)}</td>
+                        </tr>
+                      ))}
+                    </>
+                  );
+                })}
+                {/* Totals */}
+                <tr style={{ background: '#d97706', borderTop: '2px solid #f59e0b' }}>
+                  <td className="px-4 py-2.5 text-xs font-bold text-white uppercase">TOTALS</td>
+                  {[totals.opening, totals.total_recv_dubai, totals.total_recv_umq, totals.total_dispatch, totals.closing].map((v, i) => (
+                    <td key={i} className="px-3 py-2.5 text-center text-sm font-bold"
+                      style={{ color: v === 0 ? '#fca5a5' : '#fff' }}>
+                      {v.toLocaleString()}
                     </td>
-                  </tr>
-                  {items.map(rec => (
-                    <tr key={rec.product} className="hover:bg-base-200/60 border-b border-base-300/40">
-                      <td className="pl-4 text-sm font-medium text-base-content/80 py-1.5">{rec.product}</td>
-                      <td className={`text-center text-sm tabular-nums font-semibold ${rec.opening === 0 ? 'text-error' : 'text-base-content/70'}`}>{rec.opening.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-info">{rec.recv_dubai.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-info">{rec.recv_umq.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-warning">{rec.dispatch.toLocaleString()}</td>
-                      <td className={`text-center text-sm font-bold tabular-nums ${rec.closing === 0 ? 'text-error' : 'text-success'}`}>{rec.closing.toLocaleString()}</td>
-                    </tr>
                   ))}
-                </React.Fragment>
-              ))}
-              <tr className="border-t-2 border-primary/30 bg-primary/5">
-                <td className="pl-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary">Grand Total</td>
-                <td className={`text-center text-sm font-bold tabular-nums ${tot.opening === 0 ? 'text-error' : ''}`}>{tot.opening.toLocaleString()}</td>
-                <td className="text-center text-sm font-bold tabular-nums text-info">{tot.recv_dubai.toLocaleString()}</td>
-                <td className="text-center text-sm font-bold tabular-nums text-info">{tot.recv_umq.toLocaleString()}</td>
-                <td className="text-center text-sm font-bold tabular-nums text-warning">{tot.dispatch.toLocaleString()}</td>
-                <td className={`text-center text-sm font-bold tabular-nums ${tot.closing === 0 ? 'text-error' : 'text-success'}`}>{tot.closing.toLocaleString()}</td>
-              </tr>
-            </tbody>
-          </table>
-        )}
-      </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}

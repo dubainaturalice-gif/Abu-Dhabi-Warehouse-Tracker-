@@ -1,32 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "noEmit": true,
-    "strict": false,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "/tmp/tasklet-deps/abudhabi-warehouse-tracker-4aa020102614/node_modules/*"
-      ]
-    },
-    "typeRoots": [
-      "/tmp/tasklet-deps/abudhabi-warehouse-tracker-4aa020102614/node_modules/@types"
-    ],
-    "types": [
-      "react",
-      "react-dom"
-    ]
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": { "@/*": ["./*"] }
   },
-  "include": [
-    "./**/*.tsx",
-    "./**/*.ts",
-    "./**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

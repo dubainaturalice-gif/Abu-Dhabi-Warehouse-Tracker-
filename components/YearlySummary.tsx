@@ -1,177 +1,201 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, FileDown, TrendingUp, RefreshCw } from 'lucide-react';
-import { MonthlyStat } from '../types';
-import { getYearlyData, getAvailableYears } from '../utils/db';
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import { useAuth } from './AuthContext';
+import { YearlyMonthSummary } from '@/types';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+} from 'recharts';
 
-export const YearlySummary: React.FC = () => {
+export default function YearlySummary() {
+  const { token } = useAuth();
   const [year, setYear] = useState(new Date().getFullYear());
-  const [data, setData]   = useState<MonthlyStat[]>([]);
-  const [years, setYears] = useState<number[]>([]);
+  const [data, setData] = useState<YearlyMonthSummary[]>([]);
   const [loading, setLoading] = useState(false);
 
   const load = useCallback(async () => {
+    if (!token) return;
     setLoading(true);
     try {
-      const [d, y] = await Promise.all([getYearlyData(year), getAvailableYears()]);
-      setData(d);
-      const allYears = Array.from(new Set([...y, year])).sort((a, b) => b - a);
-      setYears(allYears);
-    } catch (e) { console.error('Yearly load failed:', e); }
-    finally { setLoading(false); }
-  }, [year]);
+      const res = await fetch(`/api/yearly?year=${year}`, { headers: { Authorization: `Bearer ${token}` } });
+      setData(await res.json());
+    } finally { setLoading(false); }
+  }, [token, year]);
 
   useEffect(() => { load(); }, [load]);
 
-  const totals = data.reduce((a, m) => ({
-    recv_dubai: a.recv_dubai + m.total_recv_dubai,
-    recv_umq:   a.recv_umq   + m.total_recv_umq,
-    recv:       a.recv       + m.total_recv,
-    dispatch:   a.dispatch   + m.total_dispatch,
-    days:       a.days       + m.days_entered,
-  }), { recv_dubai: 0, recv_umq: 0, recv: 0, dispatch: 0, days: 0 });
+  const totals = {
+    recv_dubai: data.reduce((s, r) => s + r.total_recv_dubai, 0),
+    recv_umq:   data.reduce((s, r) => s + r.total_recv_umq,   0),
+    dispatch:   data.reduce((s, r) => s + r.total_dispatch,   0),
+    days:       data.reduce((s, r) => s + r.days_with_data,   0),
+  };
 
-  const maxRecv = Math.max(...data.map(m => m.total_recv), 1);
+  const chartData = data.map(m => ({
+    name: m.month_name,
+    'Recv Dubai': m.total_recv_dubai,
+    'Recv UMQ':   m.total_recv_umq,
+    'Dispatched': m.total_dispatch,
+  }));
 
-  const exportPDF = async () => {
-    const title = `Year ${year} - Annual Report`;
-    const payload = { type: 'yearly', output: `/tmp/yearly_${year}.pdf`, title, data };
-    try {
-      await window.tasklet.writeFileToDisk('/tmp/pdf_in.json', JSON.stringify(payload));
-      const r = await window.tasklet.runCommand(
-        `uv run --with fpdf2 python3 /tasklet/agent/home/apps/abudhabi-warehouse-tracker/generate_pdf.py < /tmp/pdf_in.json`
-      );
-      if (r.exitCode !== 0) throw new Error(r.log);
-      const b64 = await window.tasklet.runCommand(`base64 /tmp/yearly_${year}.pdf`);
-      const link = document.createElement('a');
-      link.href = `data:application/pdf;base64,${b64.log.trim()}`;
-      link.download = `NaturalIce_Yearly_${year}.pdf`;
-      link.click();
-    } catch (e) { console.error('PDF export failed:', e); }
+  const handlePDF = async () => {
+    const { default: jsPDF } = await import('jspdf');
+    const { default: autoTable } = await import('jspdf-autotable');
+    const doc = new jsPDF({ orientation: 'landscape' });
+
+    doc.setFillColor(10, 22, 40);
+    doc.rect(0, 0, 297, 25, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica','bold');
+    doc.text(`ABU DHABI WAREHOUSE — YEARLY OVERVIEW ${year}`, 15, 12);
+    doc.setFontSize(10);
+    doc.setFont('helvetica','normal');
+    doc.setTextColor(148,163,184);
+    doc.text(`Generated: ${new Date().toLocaleString()}`, 297 - 15, 20, { align: 'right' });
+
+    // KPI
+    const kpis = [
+      { label: 'Total Recv Dubai', value: totals.recv_dubai,   color: [20,184,166] as [number,number,number] },
+      { label: 'Total Recv UMQ',   value: totals.recv_umq,     color: [124,58,237] as [number,number,number] },
+      { label: 'Total Dispatched', value: totals.dispatch,     color: [249,115,22] as [number,number,number] },
+      { label: 'Days with Data',   value: totals.days,         color: [59,130,246] as [number,number,number] },
+    ];
+    const kw = (297 - 30) / kpis.length;
+    kpis.forEach((k, i) => {
+      const x = 15 + i * kw;
+      doc.setFillColor(...k.color);
+      doc.roundedRect(x, 30, kw - 4, 18, 2, 2, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(7);
+      doc.setFont('helvetica','normal');
+      doc.text(k.label, x + (kw - 4)/2, 36, { align: 'center' });
+      doc.setFontSize(12);
+      doc.setFont('helvetica','bold');
+      doc.text(k.value.toLocaleString(), x + (kw - 4)/2, 44, { align: 'center' });
+    });
+
+    autoTable(doc, {
+      startY: 55,
+      head: [['Month', 'Opening', 'Recv Dubai', 'Recv UMQ', 'Dispatched', 'Closing', 'Days']],
+      body: data.map(m => [m.month_name, m.opening, m.total_recv_dubai, m.total_recv_umq, m.total_dispatch, m.closing, m.days_with_data]),
+      theme: 'grid',
+      styles: { fontSize: 9, cellPadding: 3, halign: 'center' },
+      headStyles: { fillColor: [10,22,40], textColor: [148,163,184], fontStyle: 'bold' },
+      columnStyles: { 0: { halign: 'left', fontStyle: 'bold' } },
+      alternateRowStyles: { fillColor: [240,253,252] },
+      footStyles: { fillColor: [217,119,6], textColor: [255,255,255], fontStyle: 'bold' },
+      foot: [['TOTAL', '', totals.recv_dubai, totals.recv_umq, totals.dispatch, '', totals.days]],
+      margin: { left: 15, right: 15 },
+    });
+
+    doc.save(`warehouse-yearly-${year}.pdf`);
   };
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
-
-      {/* Header */}
-      <div className="bg-base-200 border-b border-base-300 px-5 py-3 flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <TrendingUp size={18} className="text-primary" />
-          <div className="flex items-center gap-2 ml-1">
-            <button onClick={() => setYear(y => y - 1)} className="btn btn-ghost btn-sm btn-circle"><ChevronLeft size={15} /></button>
-            <div className="text-center w-28">
-              <div className="font-bold text-base-content text-lg">{year}</div>
-              <div className="text-xs text-base-content/40">Annual Report</div>
-            </div>
-            <button onClick={() => setYear(y => y + 1)} className="btn btn-ghost btn-sm btn-circle"><ChevronRight size={15} /></button>
-          </div>
-          {/* Year quick-select */}
-          {years.length > 1 && (
-            <select
-              className="select select-sm select-bordered bg-base-100 ml-2"
-              value={year}
-              onChange={e => setYear(Number(e.target.value))}
-            >
-              {years.map(y => <option key={y} value={y}>{y}</option>)}
-            </select>
-          )}
+    <div className="p-6">
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <div>
+          <h1 className="text-xl font-bold text-white">Yearly Overview</h1>
+          <p className="text-slate-400 text-sm mt-0.5">Month-by-month breakdown for {year}</p>
         </div>
-        <div className="flex gap-2">
-          <button onClick={load} className="btn btn-ghost btn-sm btn-circle" title="Reload"><RefreshCw size={13} /></button>
-          <button onClick={exportPDF} className="btn btn-outline btn-sm gap-1.5 border-primary/30 text-primary hover:bg-primary hover:text-primary-content">
-            <FileDown size={13} />Export PDF
+        <div className="flex items-center gap-2">
+          <select value={year} onChange={e => setYear(+e.target.value)}
+            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
+            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            {[2024,2025,2026,2027,2028].map(y => <option key={y} value={y}>{y}</option>)}
+          </select>
+          <button onClick={handlePDF}
+            className="text-sm font-medium px-4 py-2 rounded-lg"
+            style={{ background: '#0d9488', color: '#fff' }}>
+            📄 Export PDF
           </button>
         </div>
       </div>
 
-      {/* KPI cards */}
-      <div className="grid grid-cols-4 gap-3 p-4 border-b border-base-300 flex-shrink-0 bg-base-100">
+      {/* KPI Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         {[
-          { label: 'Total Recv Dubai', value: totals.recv_dubai, cls: 'text-info' },
-          { label: 'Total Recv UMQ',   value: totals.recv_umq,   cls: 'text-info' },
-          { label: 'Total Dispatch',   value: totals.dispatch,   cls: 'text-warning' },
-          { label: 'Days Entered',     value: totals.days,       cls: 'text-success' },
+          { label: 'Total Recv Dubai', val: totals.recv_dubai, color: '#14b8a6', icon: '🚚' },
+          { label: 'Total Recv UMQ',   val: totals.recv_umq,   color: '#a78bfa', icon: '📥' },
+          { label: 'Total Dispatched', val: totals.dispatch,   color: '#f97316', icon: '📤' },
+          { label: 'Days with Data',   val: totals.days,       color: '#60a5fa', icon: '📅' },
         ].map(k => (
-          <div key={k.label} className="bg-base-200 rounded-xl p-3 text-center">
-            <div className={`text-2xl font-extrabold tabular-nums ${k.cls}`}>{k.value.toLocaleString()}</div>
-            <div className="text-xs text-base-content/40 font-medium mt-0.5">{k.label}</div>
+          <div key={k.label} className="rounded-xl p-4" style={{ background: '#0f1f36', border: `1px solid ${k.color}30` }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span>{k.icon}</span>
+              <span className="text-xs text-slate-400">{k.label}</span>
+            </div>
+            <div className="text-2xl font-bold" style={{ color: k.color }}>
+              {k.val.toLocaleString()}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Content */}
-      <div className="flex-1 overflow-auto p-4">
-        {loading ? (
-          <div className="flex items-center justify-center h-40 gap-3 text-base-content/40">
-            <span className="loading loading-spinner loading-md text-primary" />
-            <span className="text-sm">Loading yearly data…</span>
-          </div>
-        ) : data.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-40 gap-2 text-base-content/30">
-            <TrendingUp size={32} />
-            <span className="text-sm">No data for {year}</span>
-          </div>
-        ) : (
-          <>
-            {/* Mini bar chart */}
-            <div className="bg-base-200 rounded-xl p-4 mb-4">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-base-content/40 mb-3">Monthly Received Stock</h3>
-              <div className="flex items-end gap-1 h-24">
-                {data.map(m => {
-                  const pct = Math.round((m.total_recv / maxRecv) * 100);
-                  const label = m.label.split(' ')[0];
-                  return (
-                    <div key={m.month} className="flex-1 flex flex-col items-center gap-1 group">
-                      <div className="text-xs font-bold text-base-content/40 opacity-0 group-hover:opacity-100 transition-opacity"
-                        style={{fontSize:'9px'}}>{m.total_recv.toLocaleString()}</div>
-                      <div className="w-full bg-primary/80 rounded-t transition-all hover:bg-primary" style={{height:`${Math.max(pct, 4)}%`}} />
-                      <span className="text-base-content/40" style={{fontSize:'9px'}}>{label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Table */}
-            <div className="bg-base-200 rounded-xl overflow-hidden">
-              <table className="table table-sm w-full">
-                <thead className="bg-base-300">
-                  <tr>
-                    <th className="text-xs font-semibold text-base-content/50 pl-4">Month</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Recv Dubai</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Recv UMQ</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Total Recv</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Dispatch</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Last Closing</th>
-                    <th className="text-center text-xs font-semibold text-base-content/50">Days</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((m, i) => (
-                    <tr key={m.month} className="hover:bg-base-300/40 border-b border-base-300/40">
-                      <td className="pl-4 font-semibold text-sm text-base-content/80 py-2">{m.label}</td>
-                      <td className="text-center text-sm tabular-nums text-info">{m.total_recv_dubai.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-info">{m.total_recv_umq.toLocaleString()}</td>
-                      <td className="text-center text-sm font-bold tabular-nums text-info">{m.total_recv.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-warning">{m.total_dispatch.toLocaleString()}</td>
-                      <td className="text-center text-sm tabular-nums text-success">{m.last_closing.toLocaleString()}</td>
-                      <td className="text-center text-xs text-base-content/50">{m.days_entered}</td>
-                    </tr>
-                  ))}
-                  <tr className="border-t-2 border-primary/30 bg-primary/5 font-bold">
-                    <td className="pl-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary">Total {year}</td>
-                    <td className="text-center text-sm font-bold tabular-nums text-info">{totals.recv_dubai.toLocaleString()}</td>
-                    <td className="text-center text-sm font-bold tabular-nums text-info">{totals.recv_umq.toLocaleString()}</td>
-                    <td className="text-center text-sm font-bold tabular-nums text-info">{totals.recv.toLocaleString()}</td>
-                    <td className="text-center text-sm font-bold tabular-nums text-warning">{totals.dispatch.toLocaleString()}</td>
-                    <td className="text-center text-sm tabular-nums text-base-content/30">—</td>
-                    <td className="text-center text-xs font-bold text-success">{totals.days}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
+      {/* Bar Chart */}
+      <div className="rounded-xl p-5 mb-6" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
+        <h3 className="text-sm font-semibold text-slate-300 mb-4">Monthly Movement Chart</h3>
+        <ResponsiveContainer width="100%" height={260}>
+          <BarChart data={chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#1a2f4a" />
+            <XAxis dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} />
+            <YAxis tick={{ fill: '#94a3b8', fontSize: 11 }} />
+            <Tooltip contentStyle={{ background: '#0A1628', border: '1px solid #1a2f4a', borderRadius: 8, color: '#e2e8f0' }} />
+            <Legend wrapperStyle={{ color: '#94a3b8', fontSize: 12 }} />
+            <Bar dataKey="Recv Dubai" fill="#14b8a6" radius={[3,3,0,0]} />
+            <Bar dataKey="Recv UMQ"   fill="#a78bfa" radius={[3,3,0,0]} />
+            <Bar dataKey="Dispatched" fill="#f97316" radius={[3,3,0,0]} />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
+
+      {/* Table */}
+      {loading ? (
+        <div className="flex items-center justify-center h-48">
+          <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+      ) : (
+        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr style={{ background: '#0A1628' }}>
+                  {['Month','Opening','Recv Dubai','Recv UMQ','Dispatched','Closing','Days'].map((h,i) => (
+                    <th key={h} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wide ${i === 0 ? 'text-left' : 'text-center'}`}
+                      style={{ color: ['#e2e8f0','#60a5fa','#34d399','#a78bfa','#fb923c','#facc15','#94a3b8'][i] }}>
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((m, i) => (
+                  <tr key={m.month}
+                    style={{ background: i % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}
+                    className="hover:bg-white/5 transition-colors">
+                    <td className="px-4 py-2.5 text-sm font-semibold text-white">{m.month_name}</td>
+                    <td className="px-4 py-2.5 text-center text-sm">{m.opening > 0 ? m.opening.toLocaleString() : <span style={{color:'#ef4444',fontWeight:700}}>0</span>}</td>
+                    <td className="px-4 py-2.5 text-center text-sm text-teal-400">{m.total_recv_dubai.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm text-purple-400">{m.total_recv_umq.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm text-orange-400">{m.total_dispatch.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm font-semibold">{m.closing > 0 ? m.closing.toLocaleString() : <span style={{color:'#ef4444',fontWeight:700}}>0</span>}</td>
+                    <td className="px-4 py-2.5 text-center text-sm text-slate-400">{m.days_with_data}</td>
+                  </tr>
+                ))}
+                <tr style={{ background: '#d97706', borderTop: '2px solid #f59e0b' }}>
+                  <td className="px-4 py-2.5 text-xs font-bold text-white uppercase">TOTAL</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">—</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">{totals.recv_dubai.toLocaleString()}</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">{totals.recv_umq.toLocaleString()}</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">{totals.dispatch.toLocaleString()}</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">—</td>
+                  <td className="px-4 py-2.5 text-center font-bold text-white">{totals.days}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}

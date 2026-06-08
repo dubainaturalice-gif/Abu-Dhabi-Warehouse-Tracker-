@@ -1,239 +1,152 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { UserPlus, Trash2, KeyRound, Users, Shield, User, RefreshCw, X, Check } from 'lucide-react';
-import { getUsers, createUser, deleteUser, updatePassword } from '../utils/db';
+'use client';
+import { useState, useEffect } from 'react';
+import { useAuth } from './AuthContext';
 
-interface UserRow { id: number; username: string; role: string; created_at: string; }
+interface AppUser { id: number; username: string; role: string; created_at: string; }
 
-export const UserManagement: React.FC = () => {
-  const [users, setUsers]       = useState<UserRow[]>([]);
-  const [loading, setLoading]   = useState(false);
-  const [showAdd, setShowAdd]   = useState(false);
-  const [pwdModal, setPwdModal] = useState<UserRow | null>(null);
+export default function UserManagement() {
+  const { token } = useAuth();
+  const [users, setUsers] = useState<AppUser[]>([]);
+  const [form, setForm] = useState({ username: '', password: '', role: 'employee' });
+  const [msg, setMsg] = useState('');
+  const [err, setErr] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [pwModal, setPwModal] = useState<{ id: number; username: string } | null>(null);
+  const [newPw, setNewPw] = useState('');
 
-  // Add user form
-  const [newUser, setNewUser] = useState({ username: '', password: '', role: 'employee' });
-  const [addErr, setAddErr]   = useState('');
-  const [addOk,  setAddOk]   = useState(false);
+  const h = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
 
-  // Change password form
-  const [newPwd, setNewPwd]     = useState('');
-  const [pwdErr, setPwdErr]     = useState('');
-  const [pwdOk,  setPwdOk]     = useState(false);
+  const load = async () => {
+    const res = await fetch('/api/users', { headers: h });
+    setUsers(await res.json());
+  };
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try { setUsers(await getUsers()); }
-    catch (e) { console.error('Load users failed:', e); }
-    finally { setLoading(false); }
-  }, []);
-
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => { load(); }, []);
 
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
-    setAddErr(''); setAddOk(false);
-    if (!newUser.username.trim() || !newUser.password.trim()) {
-      setAddErr('Username and password are required.');
-      return;
-    }
+    setErr(''); setMsg(''); setLoading(true);
     try {
-      await createUser(newUser.username.trim(), newUser.password.trim(), newUser.role);
-      setAddOk(true);
-      setNewUser({ username: '', password: '', role: 'employee' });
-      await load();
-      setTimeout(() => { setAddOk(false); setShowAdd(false); }, 1200);
-    } catch (e: any) {
-      setAddErr(String(e?.message ?? 'Username already exists.'));
-      console.error('Create user failed:', e);
-    }
+      const res = await fetch('/api/users', { method: 'POST', headers: h, body: JSON.stringify(form) });
+      const data = await res.json();
+      if (!res.ok) { setErr(data.error); return; }
+      setMsg(`User "${form.username}" created`);
+      setForm({ username: '', password: '', role: 'employee' });
+      load();
+    } finally { setLoading(false); }
   };
 
-  const handleDelete = async (u: UserRow) => {
-    if (u.username === 'admin') return;
-    await deleteUser(u.id);
-    await load();
+  const handleDelete = async (id: number, username: string) => {
+    if (!confirm(`Delete user "${username}"?`)) return;
+    await fetch(`/api/users?id=${id}`, { method: 'DELETE', headers: h });
+    load();
   };
 
-  const handlePwd = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setPwdErr(''); setPwdOk(false);
-    if (!newPwd.trim()) { setPwdErr('New password is required.'); return; }
-    if (newPwd.trim().length < 4) { setPwdErr('Password must be at least 4 characters.'); return; }
-    try {
-      await updatePassword(pwdModal!.id, newPwd.trim());
-      setPwdOk(true);
-      setNewPwd('');
-      setTimeout(() => { setPwdOk(false); setPwdModal(null); }, 1200);
-    } catch (e) {
-      setPwdErr('Failed to update password.');
-      console.error('Update password failed:', e);
-    }
+  const handleChangePw = async () => {
+    if (!pwModal || !newPw) return;
+    await fetch('/api/users', { method: 'PUT', headers: h, body: JSON.stringify({ id: pwModal.id, password: newPw }) });
+    setMsg(`Password updated for "${pwModal.username}"`);
+    setPwModal(null); setNewPw('');
   };
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    <div className="p-6 max-w-3xl">
+      <div className="mb-6">
+        <h1 className="text-xl font-bold text-white">User Management</h1>
+        <p className="text-slate-400 text-sm mt-0.5">Manage employee accounts and access</p>
+      </div>
 
-      {/* Header */}
-      <div className="bg-base-200 border-b border-base-300 px-5 py-3 flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <Users size={18} className="text-primary" />
+      {/* Add user */}
+      <div className="rounded-xl p-5 mb-6" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
+        <h2 className="text-sm font-semibold text-white mb-4">Add New User</h2>
+        <form onSubmit={handleAdd} className="flex flex-wrap gap-3 items-end">
+          <div className="flex-1 min-w-36">
+            <label className="block text-xs text-slate-400 mb-1">Username</label>
+            <input value={form.username} onChange={e => setForm(f => ({...f, username: e.target.value}))}
+              required className="w-full px-3 py-2 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+              style={{ background: '#0A1628', border: '1px solid #1a2f4a' }} placeholder="username" />
+          </div>
+          <div className="flex-1 min-w-36">
+            <label className="block text-xs text-slate-400 mb-1">Password</label>
+            <input type="password" value={form.password} onChange={e => setForm(f => ({...f, password: e.target.value}))}
+              required className="w-full px-3 py-2 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+              style={{ background: '#0A1628', border: '1px solid #1a2f4a' }} placeholder="password" />
+          </div>
           <div>
-            <div className="font-bold text-base-content">User Management</div>
-            <div className="text-xs text-base-content/40">{users.length} team member{users.length !== 1 ? 's' : ''}</div>
+            <label className="block text-xs text-slate-400 mb-1">Role</label>
+            <select value={form.role} onChange={e => setForm(f => ({...f, role: e.target.value}))}
+              className="px-3 py-2 rounded-lg text-sm text-white focus:outline-none"
+              style={{ background: '#0A1628', border: '1px solid #1a2f4a' }}>
+              <option value="employee">Employee</option>
+              <option value="admin">Admin</option>
+            </select>
           </div>
-        </div>
-        <div className="flex gap-2">
-          <button onClick={load} className="btn btn-ghost btn-sm btn-circle" title="Reload"><RefreshCw size={13} /></button>
-          <button onClick={() => { setShowAdd(v => !v); setAddErr(''); setAddOk(false); }} className="btn btn-primary btn-sm gap-1.5">
-            <UserPlus size={14} />{showAdd ? 'Cancel' : 'Add User'}
+          <button type="submit" disabled={loading}
+            className="px-4 py-2 rounded-lg text-sm font-medium text-white disabled:opacity-50"
+            style={{ background: '#0d9488' }}>
+            {loading ? 'Adding…' : 'Add User'}
           </button>
-        </div>
+        </form>
+        {msg && <p className="text-teal-400 text-xs mt-3">{msg}</p>}
+        {err && <p className="text-red-400 text-xs mt-3">{err}</p>}
       </div>
 
-      <div className="flex-1 overflow-auto p-4 space-y-4">
-
-        {/* Add user form */}
-        {showAdd && (
-          <div className="card bg-base-200 border border-primary/20 shadow-sm">
-            <div className="card-body p-4">
-              <h3 className="font-bold text-sm text-base-content mb-3 flex items-center gap-2">
-                <UserPlus size={15} className="text-primary" /> New User
-              </h3>
-              <form onSubmit={handleAdd} className="grid grid-cols-3 gap-3">
-                <input
-                  className="input input-bordered input-sm bg-base-100"
-                  placeholder="Username"
-                  value={newUser.username}
-                  onChange={e => setNewUser(v => ({ ...v, username: e.target.value }))}
-                  autoFocus
-                />
-                <input
-                  className="input input-bordered input-sm bg-base-100"
-                  type="password"
-                  placeholder="Password"
-                  value={newUser.password}
-                  onChange={e => setNewUser(v => ({ ...v, password: e.target.value }))}
-                />
-                <select
-                  className="select select-bordered select-sm bg-base-100"
-                  value={newUser.role}
-                  onChange={e => setNewUser(v => ({ ...v, role: e.target.value }))}
-                >
-                  <option value="employee">Employee</option>
-                  <option value="admin">Admin</option>
-                </select>
-                {addErr && <div className="col-span-3 alert alert-error py-1.5 text-xs">{addErr}</div>}
-                {addOk  && <div className="col-span-3 alert alert-success py-1.5 text-xs flex gap-1"><Check size={12} />User created!</div>}
-                <div className="col-span-3 flex justify-end">
-                  <button type="submit" className="btn btn-primary btn-sm gap-1">
-                    <UserPlus size={13} />Create User
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
-
-        {/* Users table */}
-        {loading ? (
-          <div className="flex items-center justify-center h-32 gap-2 text-base-content/40">
-            <span className="loading loading-spinner loading-sm text-primary" />
-            <span className="text-sm">Loading users…</span>
-          </div>
-        ) : (
-          <div className="card bg-base-200 overflow-hidden">
-            <table className="table table-sm w-full">
-              <thead className="bg-base-300">
-                <tr>
-                  <th className="text-xs font-semibold text-base-content/50 pl-4">User</th>
-                  <th className="text-center text-xs font-semibold text-base-content/50">Role</th>
-                  <th className="text-center text-xs font-semibold text-base-content/50">Created</th>
-                  <th className="text-right text-xs font-semibold text-base-content/50 pr-4">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map(u => (
-                  <tr key={u.id} className="hover:bg-base-300/40 border-b border-base-300/40">
-                    <td className="pl-4 py-2">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 bg-secondary/15 rounded-full flex items-center justify-center flex-shrink-0">
-                          {u.role === 'admin'
-                            ? <Shield size={14} className="text-primary" />
-                            : <User size={14} className="text-secondary" />}
-                        </div>
-                        <div>
-                          <div className="font-semibold text-sm text-base-content">{u.username}</div>
-                          <div className="text-xs text-base-content/40">ID #{u.id}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="text-center">
-                      <span className={`badge badge-sm ${u.role === 'admin' ? 'badge-primary' : 'badge-secondary'} capitalize`}>
-                        {u.role}
-                      </span>
-                    </td>
-                    <td className="text-center text-xs text-base-content/40">
-                      {u.created_at ? new Date(u.created_at).toLocaleDateString('en-GB') : '—'}
-                    </td>
-                    <td className="text-right pr-4">
-                      <div className="flex items-center justify-end gap-1">
-                        <button
-                          onClick={() => { setPwdModal(u); setNewPwd(''); setPwdErr(''); setPwdOk(false); }}
-                          className="btn btn-ghost btn-xs gap-1 text-base-content/50 hover:text-warning"
-                          title="Change password"
-                        >
-                          <KeyRound size={12} />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(u)}
-                          disabled={u.username === 'admin'}
-                          className="btn btn-ghost btn-xs gap-1 text-base-content/50 hover:text-error disabled:opacity-20"
-                          title={u.username === 'admin' ? 'Cannot delete admin' : 'Delete user'}
-                        >
-                          <Trash2 size={12} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+      {/* User list */}
+      <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+        <table className="w-full text-sm">
+          <thead>
+            <tr style={{ background: '#0A1628' }}>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Username</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Role</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Created</th>
+              <th className="px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((u, i) => (
+              <tr key={u.id} style={{ background: i % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}>
+                <td className="px-4 py-3 font-medium text-white">{u.username}</td>
+                <td className="px-4 py-3">
+                  <span className="text-xs px-2 py-0.5 rounded-full font-medium"
+                    style={{ background: u.role === 'admin' ? '#7c3aed30' : '#0d948830', color: u.role === 'admin' ? '#a78bfa' : '#14b8a6' }}>
+                    {u.role}
+                  </span>
+                </td>
+                <td className="px-4 py-3 text-slate-400 text-xs">{new Date(u.created_at).toLocaleDateString()}</td>
+                <td className="px-4 py-3 text-right">
+                  <div className="flex gap-2 justify-end">
+                    <button onClick={() => { setPwModal({ id: u.id, username: u.username }); setNewPw(''); }}
+                      className="text-xs px-2.5 py-1 rounded text-blue-400 border border-blue-500/30 hover:bg-blue-500/10 transition-all">
+                      Change PW
+                    </button>
+                    <button onClick={() => handleDelete(u.id, u.username)}
+                      className="text-xs px-2.5 py-1 rounded text-red-400 border border-red-500/30 hover:bg-red-500/10 transition-all">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      {/* Password modal */}
-      {pwdModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="card bg-base-100 shadow-2xl w-80">
-            <div className="card-body p-5">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-bold text-sm flex items-center gap-2">
-                  <KeyRound size={14} className="text-primary" /> Change Password
-                </h3>
-                <button onClick={() => setPwdModal(null)} className="btn btn-ghost btn-xs btn-circle"><X size={13} /></button>
-              </div>
-              <p className="text-xs text-base-content/50 mb-3">User: <strong>{pwdModal.username}</strong></p>
-              <form onSubmit={handlePwd} className="space-y-3">
-                <input
-                  className="input input-bordered input-sm w-full bg-base-200"
-                  type="password"
-                  placeholder="New password (min 4 chars)"
-                  value={newPwd}
-                  onChange={e => setNewPwd(e.target.value)}
-                  autoFocus
-                />
-                {pwdErr && <div className="alert alert-error py-1.5 text-xs">{pwdErr}</div>}
-                {pwdOk  && <div className="alert alert-success py-1.5 text-xs flex gap-1"><Check size={12} />Password updated!</div>}
-                <div className="flex gap-2 justify-end">
-                  <button type="button" onClick={() => setPwdModal(null)} className="btn btn-ghost btn-sm">Cancel</button>
-                  <button type="submit" className="btn btn-primary btn-sm">Update</button>
-                </div>
-              </form>
+      {/* Change password modal */}
+      {pwModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="rounded-2xl p-6 max-w-sm w-full mx-4" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
+            <h3 className="text-white font-semibold mb-4">Change Password — {pwModal.username}</h3>
+            <input type="password" value={newPw} onChange={e => setNewPw(e.target.value)}
+              placeholder="New password" autoFocus
+              className="w-full px-3 py-2.5 rounded-lg text-sm text-white focus:outline-none focus:ring-1 focus:ring-teal-500 mb-4"
+              style={{ background: '#0A1628', border: '1px solid #1a2f4a' }} />
+            <div className="flex gap-3 justify-end">
+              <button onClick={() => setPwModal(null)} className="px-4 py-2 rounded-lg text-sm text-slate-300 border border-slate-600 hover:bg-white/5">Cancel</button>
+              <button onClick={handleChangePw} className="px-4 py-2 rounded-lg text-sm text-white" style={{ background: '#0d9488' }}>Update</button>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-};
+}
