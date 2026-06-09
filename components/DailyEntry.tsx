@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import { StockRecord } from '@/types';
 
-const CATEGORIES = ['ICE PRODUCTS \u2014 FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
+const CATEGORIES = ['ICE PRODUCTS — FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
 
 function fmtDate(d: Date) {
   const y = d.getFullYear();
@@ -316,33 +316,33 @@ export default function DailyEntry() {
           <div className="flex items-center gap-3">
             <h1 className="text-xl font-bold text-slate-800">Daily Stock Entry</h1>
             <span className="text-xs font-bold px-2.5 py-1 rounded-full text-white" style={{ background: '#0d9488' }}>Day {dayNum}</span>
-            {isLocked && <span className="locked-badge">\ud83d\udd12 Locked</span>}
+            {isLocked && <span className="locked-badge">🔒 Locked</span>}
           </div>
           <p className="text-slate-500 text-sm mt-0.5">{dayName}, {fullDate}</p>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">\u2039</button>
+          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Previous Day"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
           <input type="date" value={date} onChange={e => { flushSave(); setDate(e.target.value); }}
             className="text-sm text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
-          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">\u203a</button>
+          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Next Day"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
           <button onClick={() => { flushSave(); setDate(fmtDate(new Date())); }}
             className="text-xs px-3 py-1.5 rounded-lg font-medium border border-teal-200 text-teal-600 hover:bg-teal-50 transition-all">Today</button>
         </div>
         <div className="flex items-center gap-2">
-          {saving && <span className="text-xs text-slate-400 animate-pulse">Saving\u2026</span>}
-          {saved  && <span className="text-xs text-teal-600 font-medium">\u2713 Saved</span>}
+          {saving && <span className="text-xs text-slate-400 animate-pulse">Saving…</span>}
+          {saved  && <span className="text-xs text-teal-600 font-medium">✓ Saved</span>}
           <button onClick={exportPDF} disabled={exporting || loading}
             className="text-sm font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 border"
             style={{ background: '#1e3a5f', color: '#fff', borderColor: '#1e3a5f', opacity: exporting ? 0.7 : 1 }}>
-            {exporting ? '\u23f3' : '\ud83d\udcc4'} {exporting ? 'Generating\u2026' : 'Export PDF'}
+            {exporting ? '⌛' : '📄'} {exporting ? 'Generating…' : 'Export PDF'}
           </button>
           {!isAdmin && (
             <button onClick={handleSaveClose} className="text-sm font-medium px-4 py-2 rounded-lg transition-all text-white" style={{ background: '#0d9488' }}>
-              \ud83d\udcbe Save &amp; Close
+              💾 Save &amp; Close
             </button>
           )}
           {isAdmin && isLocked && (
-            <button onClick={handleUnlock} className="text-sm px-3 py-2 rounded-lg border border-orange-200 text-orange-600 hover:bg-orange-50 transition-all">\ud83d\udd13 Unlock</button>
+            <button onClick={handleUnlock} className="text-sm px-3 py-2 rounded-lg border border-orange-200 text-orange-600 hover:bg-orange-50 transition-all">🔓 Unlock</button>
           )}
           {isAdmin && !isLocked && (
             <button onClick={() => setShowReset(true)} className="text-sm px-3 py-2 rounded-lg border border-red-200 text-red-500 hover:bg-red-50 transition-all">Reset Day</button>
@@ -353,7 +353,7 @@ export default function DailyEntry() {
       {showReset && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
           <div className="rounded-2xl p-6 max-w-sm w-full mx-4 text-center bg-white shadow-xl border border-slate-200">
-            <div className="text-3xl mb-3">\u26a0\ufe0f</div>
+            <div className="text-3xl mb-3">⚠️</div>
             <h3 className="text-slate-800 font-semibold mb-2">Reset Day?</h3>
             <p className="text-slate-500 text-sm mb-5">This will zero out all movements. Opening stock stays.</p>
             <div className="flex gap-3 justify-center">
