@@ -4,11 +4,6 @@ import { useAuth } from './AuthContext';
 import { StockRecord } from '@/types';
 
 const CATEGORIES = ['ICE PRODUCTS — FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
-const CAT_COLORS: Record<string, string> = {
-  'ICE PRODUCTS — FROM DUBAI': '#0d9488',
-  'JELAT ICE CREAM': '#7c3aed',
-  'ICE POP': '#f97316',
-};
 
 function fmtDate(d: Date) {
   const y = d.getFullYear();
@@ -242,7 +237,6 @@ export default function DailyEntry() {
       CATEGORIES.forEach(cat => {
         const catRows = records.filter(r => r.category === cat);
         if (!catRows.length) return;
-        bodyRows.push([{ content: cat, colSpan: 6, styles: { fillColor: [13, 148, 136], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'left', cellPadding: { top: 2.5, bottom: 2.5, left: 4, right: 4 } } }]);
         catRows.forEach((r, ri) => {
           const bg = ri % 2 === 0 ? [255, 255, 255] : [248, 250, 252];
           const cell = (v: number) => ({ content: v.toString(), styles: { fillColor: bg, textColor: v === 0 ? [220, 38, 38] : [15, 23, 42], fontStyle: v === 0 ? 'bold' : 'normal', halign: 'center', fontSize: 8 } });
@@ -380,27 +374,19 @@ export default function DailyEntry() {
                 </tr>
               </thead>
               <tbody>
-                {grouped.map(({ cat, rows }, gi) => (
-                  rows.length > 0 && (
-                    <>
-                      <tr key={`cat-${gi}`}>
-                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-white"
-                          style={{ background: CAT_COLORS[cat] }}>{cat}</td>
-                      </tr>
-                      {rows.map((r, ri) => (
-                        <tr key={r.product_id}
-                          style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
-                          className="hover:bg-teal-50/40 transition-colors">
-                          <td className="px-4 py-2 text-xs font-medium text-slate-700">{r.product_name}</td>
-                          <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
-                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
-                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
-                          <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
-                          <td className="px-2 py-2 text-center text-sm font-semibold">{cellVal(r.closing)}</td>
-                        </tr>
-                      ))}
-                    </>
-                  )
+                {grouped.map(({ cat, rows }) => (
+                  rows.map((r, ri) => (
+                    <tr key={r.product_id}
+                      style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
+                      className="hover:bg-teal-50/40 transition-colors">
+                      <td className="px-4 py-2 text-xs font-medium text-slate-700">{r.product_name}</td>
+                      <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
+                      <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
+                      <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
+                      <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
+                      <td className="px-2 py-2 text-center text-sm font-semibold">{cellVal(r.closing)}</td>
+                    </tr>
+                  ))
                 ))}
                 <tr style={{ background: '#0d9488', borderTop: '2px solid #0f766e' }}>
                   <td className="px-4 py-2.5 text-xs font-bold text-white uppercase tracking-wide">GRAND TOTAL</td>
