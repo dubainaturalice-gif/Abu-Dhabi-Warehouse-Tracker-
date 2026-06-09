@@ -23,7 +23,7 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) { setError(data.error || 'Invalid credentials'); return; }
-      login(data.token, data.user);
+      login(data.user, data.token);
       router.replace('/daily');
     } catch {
       setError('Connection error. Please try again.');
