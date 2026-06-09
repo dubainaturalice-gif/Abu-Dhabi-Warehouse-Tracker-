@@ -33,11 +33,12 @@ export default function DailyEntry() {
   const [isLocked, setIsLocked] = useState(false);
   const [lockedFields, setLockedFields] = useState<Set<string>>(new Set());
   const [showReset, setShowReset] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const recordsRef = useRef<StockRecord[]>([]);
   const isAdmin = user?.role === 'admin';
 
-  const headers = (token: string) => ({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` });
+  const headers = (tk: string) => ({ 'Content-Type': 'application/json', Authorization: `Bearer ${tk}` });
 
   const loadDay = useCallback(async (d: string) => {
     if (!token) return;
@@ -52,7 +53,6 @@ export default function DailyEntry() {
       setRecords(stockData);
       recordsRef.current = stockData;
       setIsLocked(lockData.locked);
-      // Rebuild lockedFields from saved data
       if (lockData.locked) {
         const lf = new Set<string>();
         for (const r of (stockData as StockRecord[])) {
@@ -111,7 +111,6 @@ export default function DailyEntry() {
 
   const handleSaveClose = async () => {
     flushSave();
-    // Snapshot locked fields
     const lf = new Set<string>();
     for (const r of recordsRef.current) {
       if (r.recv_dubai > 0) lf.add(`${r.product_id}_recv_dubai`);
@@ -155,7 +154,6 @@ export default function DailyEntry() {
   const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
   const fullDate = dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  // Tab navigation
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const editableFields = isAdmin
     ? ['opening', 'recv_dubai', 'recv_umq', 'dispatch']
@@ -166,7 +164,6 @@ export default function DailyEntry() {
     const fields = editableFields;
     const pIdx = allProducts.indexOf(productId);
     const fIdx = fields.indexOf(field);
-
     if (e.key === 'Tab' || e.key === 'ArrowRight') {
       e.preventDefault();
       const nextF = fields[fIdx + 1];
@@ -204,113 +201,161 @@ export default function DailyEntry() {
     closing:    records.reduce((s, r) => s + r.closing,    0),
   };
 
+  const exportPDF = async () => {
+    setExporting(true);
+    try {
+      const jsPDFMod = await import('jspdf');
+      const jsPDF = jsPDFMod.default;
+      await import('jspdf-autotable');
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const pageW = 210;
+      const margin = 12;
+      doc.setFontSize(15);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(10, 22, 40);
+      doc.text('NATURAL ICE  |  ABU DHABI WAREHOUSE', pageW / 2, 13, { align: 'center' });
+      doc.setFontSize(8.5);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(13, 148, 136);
+      doc.text(`DAILY STOCK REPORT  |  ${dayName.toUpperCase()}, ${date}`, pageW / 2, 19, { align: 'center' });
+      doc.setDrawColor(13, 148, 136);
+      doc.setLineWidth(0.4);
+      doc.line(margin, 22, pageW - margin, 22);
+      const kpis = [
+        { label: 'Total Recv Dubai', value: totals.recv_dubai, color: [13, 148, 136] as [number, number, number] },
+        { label: 'Total Recv UMQ',   value: totals.recv_umq,   color: [249, 115, 22] as [number, number, number] },
+        { label: 'Total Dispatched', value: totals.dispatch,   color: [249, 115, 22] as [number, number, number] },
+        { label: 'Total Closing Stk',value: totals.closing,    color: [249, 115, 22] as [number, number, number] },
+      ];
+      const kpiY = 24; const kpiH = 16; const gap = 2;
+      const kpiW = (pageW - 2 * margin - gap * 3) / 4;
+      kpis.forEach((k, i) => {
+        const x = margin + i * (kpiW + gap);
+        doc.setFillColor(...k.color);
+        doc.roundedRect(x, kpiY, kpiW, kpiH, 1.5, 1.5, 'F');
+        doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.setTextColor(255, 255, 255);
+        doc.text(k.value.toString(), x + kpiW / 2, kpiY + 8, { align: 'center' });
+        doc.setFontSize(6.5); doc.setFont('helvetica', 'normal');
+        doc.text(k.label, x + kpiW / 2, kpiY + 13, { align: 'center' });
+      });
+      const bodyRows: object[][] = [];
+      CATEGORIES.forEach(cat => {
+        const catRows = records.filter(r => r.category === cat);
+        if (!catRows.length) return;
+        bodyRows.push([{ content: cat, colSpan: 6, styles: { fillColor: [13, 148, 136], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'left', cellPadding: { top: 2.5, bottom: 2.5, left: 4, right: 4 } } }]);
+        catRows.forEach((r, ri) => {
+          const bg = ri % 2 === 0 ? [255, 255, 255] : [248, 250, 252];
+          const cell = (v: number) => ({ content: v.toString(), styles: { fillColor: bg, textColor: v === 0 ? [220, 38, 38] : [15, 23, 42], fontStyle: v === 0 ? 'bold' : 'normal', halign: 'center', fontSize: 8 } });
+          bodyRows.push([
+            { content: r.product_name, styles: { fillColor: bg, textColor: [30, 41, 59], fontSize: 7.5, halign: 'left', cellPadding: { top: 2, bottom: 2, left: 4, right: 2 } } },
+            cell(r.opening), cell(r.recv_dubai), cell(r.recv_umq), cell(r.dispatch), cell(r.closing),
+          ]);
+        });
+      });
+      const totalFields: (keyof typeof totals)[] = ['opening', 'recv_dubai', 'recv_umq', 'dispatch', 'closing'];
+      bodyRows.push([
+        { content: 'GRAND TOTAL', styles: { fillColor: [13, 148, 136], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'left', cellPadding: { top: 3, bottom: 3, left: 4, right: 2 } } },
+        ...totalFields.map(f => ({ content: totals[f].toString(), styles: { fillColor: [13, 148, 136], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', cellPadding: { top: 3, bottom: 3 } } })),
+      ]);
+      (doc as any).autoTable({
+        startY: kpiY + kpiH + 4,
+        margin: { left: margin, right: margin },
+        theme: 'plain',
+        head: [[
+          { content: 'PRODUCT',    styles: { halign: 'left',   fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, cellPadding: { top: 3, bottom: 3, left: 4, right: 2 } } },
+          { content: 'OPENING',    styles: { halign: 'center', fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8 } },
+          { content: 'RECV DUBAI', styles: { halign: 'center', fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8 } },
+          { content: 'RECV UMQ',   styles: { halign: 'center', fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8 } },
+          { content: 'DISPATCH',   styles: { halign: 'center', fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8 } },
+          { content: 'CLOSING',    styles: { halign: 'center', fillColor: [10, 22, 40], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8 } },
+        ]],
+        body: bodyRows,
+        columnStyles: { 0: { cellWidth: 52 }, 1: { cellWidth: 22 }, 2: { cellWidth: 27 }, 3: { cellWidth: 22 }, 4: { cellWidth: 27 }, 5: { cellWidth: 'auto' } },
+        didDrawPage: (data: any) => {
+          doc.setFillColor(10, 22, 40);
+          doc.rect(0, 285, 210, 12, 'F');
+          doc.setFontSize(7); doc.setFont('helvetica', 'normal'); doc.setTextColor(255, 255, 255);
+          doc.text(`Page ${data.pageNumber}  |  Natural Ice - Abu Dhabi Warehouse Tracker`, pageW / 2, 292, { align: 'center' });
+        },
+      });
+      doc.save(`Abu_Dhabi_Daily_${date}.pdf`);
+    } finally { setExporting(false); }
+  };
+
   const cellVal = (v: number) =>
     v === 0 ? <span style={{ color: '#ef4444', fontWeight: 700 }}>0</span>
-             : <span>{v.toLocaleString()}</span>;
+             : <span style={{ color: '#1e293b' }}>{v.toLocaleString()}</span>;
 
   const renderInput = (r: StockRecord, field: 'opening' | 'recv_dubai' | 'recv_umq' | 'dispatch') => {
     const key = `${r.product_id}_${field}`;
     const val = r[field];
     const canEdit = isAdmin || (field !== 'opening');
     const fieldLocked = isLocked && lockedFields.has(key);
-
     if (!canEdit || fieldLocked) {
-      return (
-        <span style={{ fontWeight: fieldLocked ? 700 : 400, color: val === 0 ? '#ef4444' : '#e2e8f0' }}>
-          {val.toLocaleString()}
-        </span>
-      );
+      return <span style={{ fontWeight: fieldLocked ? 700 : 400, color: val === 0 ? '#ef4444' : '#1e293b' }}>{val.toLocaleString()}</span>;
     }
-
     return (
-      <input
-        ref={el => { inputRefs.current[key] = el; }}
-        type="number"
-        min={0}
-        value={val === 0 ? '' : val}
-        placeholder="0"
+      <input ref={el => { inputRefs.current[key] = el; }} type="number" min={0}
+        value={val === 0 ? '' : val} placeholder="0"
         onChange={e => changeField(r.product_id, field, parseInt(e.target.value) || 0)}
         onKeyDown={e => handleKeyDown(e, r.product_id, field)}
         onFocus={e => e.target.select()}
         className="stock-input"
-        style={{ color: val === 0 ? '#ef4444' : '#e2e8f0', fontWeight: val === 0 ? 700 : 400 }}
+        style={{ color: val === 0 ? '#ef4444' : '#1e293b', fontWeight: val === 0 ? 700 : 400 }}
       />
     );
   };
 
   return (
     <div className="p-6">
-      {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-white">Daily Stock Entry</h1>
-            <span className="text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: '#0d9488', color: '#fff' }}>
-              Day {dayNum}
-            </span>
-            {isLocked && (
-              <span className="locked-badge">🔒 Locked</span>
-            )}
+            <h1 className="text-xl font-bold text-slate-800">Daily Stock Entry</h1>
+            <span className="text-xs font-bold px-2.5 py-1 rounded-full text-white" style={{ background: '#0d9488' }}>Day {dayNum}</span>
+            {isLocked && <span className="locked-badge">🔒 Locked</span>}
           </div>
-          <p className="text-slate-400 text-sm mt-0.5">{dayName}, {fullDate}</p>
+          <p className="text-slate-500 text-sm mt-0.5">{dayName}, {fullDate}</p>
         </div>
-
-        {/* Date nav */}
         <div className="flex items-center gap-2">
-          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all">‹</button>
-          <input
-            type="date"
-            value={date}
-            onChange={e => { flushSave(); setDate(e.target.value); }}
-            className="text-sm text-white px-3 py-1.5 rounded-lg border focus:outline-none focus:ring-1 focus:ring-teal-500"
-            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}
-          />
-          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all">›</button>
+          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">‹</button>
+          <input type="date" value={date} onChange={e => { flushSave(); setDate(e.target.value); }}
+            className="text-sm text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
+          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">›</button>
           <button onClick={() => { flushSave(); setDate(fmtDate(new Date())); }}
-            className="text-xs px-3 py-1.5 rounded-lg text-teal-400 border border-teal-500/30 hover:bg-teal-500/10 transition-all">
-            Today
-          </button>
+            className="text-xs px-3 py-1.5 rounded-lg font-medium border border-teal-200 text-teal-600 hover:bg-teal-50 transition-all">Today</button>
         </div>
-
-        {/* Action buttons */}
         <div className="flex items-center gap-2">
-          {saving && <span className="text-xs text-slate-500 animate-pulse">Saving…</span>}
-          {saved  && <span className="text-xs text-teal-400">✓ Saved</span>}
-
+          {saving && <span className="text-xs text-slate-400 animate-pulse">Saving…</span>}
+          {saved  && <span className="text-xs text-teal-600 font-medium">✓ Saved</span>}
+          <button onClick={exportPDF} disabled={exporting || loading}
+            className="text-sm font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 border"
+            style={{ background: '#1e3a5f', color: '#fff', borderColor: '#1e3a5f', opacity: exporting ? 0.7 : 1 }}>
+            {exporting ? '⏳' : '📄'} {exporting ? 'Generating…' : 'Export PDF'}
+          </button>
           {!isAdmin && (
-            <button onClick={handleSaveClose}
-              className="text-sm font-medium px-4 py-2 rounded-lg transition-all"
-              style={{ background: '#0d9488', color: '#fff' }}>
+            <button onClick={handleSaveClose} className="text-sm font-medium px-4 py-2 rounded-lg transition-all text-white" style={{ background: '#0d9488' }}>
               💾 Save &amp; Close
             </button>
           )}
-
           {isAdmin && isLocked && (
-            <button onClick={handleUnlock}
-              className="text-sm px-3 py-2 rounded-lg border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition-all">
-              🔓 Unlock
-            </button>
+            <button onClick={handleUnlock} className="text-sm px-3 py-2 rounded-lg border border-orange-200 text-orange-600 hover:bg-orange-50 transition-all">🔓 Unlock</button>
           )}
-
           {isAdmin && !isLocked && (
-            <button onClick={() => setShowReset(true)}
-              className="text-sm px-3 py-2 rounded-lg border text-red-400 border-red-500/30 hover:bg-red-500/10 transition-all">
-              Reset Day
-            </button>
+            <button onClick={() => setShowReset(true)} className="text-sm px-3 py-2 rounded-lg border border-red-200 text-red-500 hover:bg-red-50 transition-all">Reset Day</button>
           )}
         </div>
       </div>
 
-      {/* Reset confirm */}
       {showReset && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-          <div className="rounded-2xl p-6 max-w-sm w-full mx-4 text-center" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+          <div className="rounded-2xl p-6 max-w-sm w-full mx-4 text-center bg-white shadow-xl border border-slate-200">
             <div className="text-3xl mb-3">⚠️</div>
-            <h3 className="text-white font-semibold mb-2">Reset Day?</h3>
-            <p className="text-slate-400 text-sm mb-5">This will zero out all movements. Opening stock stays.</p>
+            <h3 className="text-slate-800 font-semibold mb-2">Reset Day?</h3>
+            <p className="text-slate-500 text-sm mb-5">This will zero out all movements. Opening stock stays.</p>
             <div className="flex gap-3 justify-center">
-              <button onClick={() => setShowReset(false)} className="px-4 py-2 rounded-lg text-sm text-slate-300 border border-slate-600 hover:bg-white/5">Cancel</button>
-              <button onClick={handleReset} className="px-4 py-2 rounded-lg text-sm text-white bg-red-600 hover:bg-red-700">Reset</button>
+              <button onClick={() => setShowReset(false)} className="px-4 py-2 rounded-lg text-sm text-slate-600 border border-slate-200 hover:bg-slate-50">Cancel</button>
+              <button onClick={handleReset} className="px-4 py-2 rounded-lg text-sm text-white bg-red-500 hover:bg-red-600">Reset</button>
             </div>
           </div>
         </div>
@@ -321,12 +366,12 @@ export default function DailyEntry() {
           <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
         </div>
       ) : (
-        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+        <div className="rounded-xl overflow-hidden bg-white shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr style={{ background: '#0A1628' }}>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide w-48">Product</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-300 uppercase tracking-wide w-48">Product</th>
                   <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#60a5fa' }}>Opening</th>
                   <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#34d399' }}>Recv Dubai</th>
                   <th className="px-3 py-3 text-xs font-semibold text-center uppercase tracking-wide" style={{ color: '#a78bfa' }}>Recv UMQ</th>
@@ -338,38 +383,29 @@ export default function DailyEntry() {
                 {grouped.map(({ cat, rows }, gi) => (
                   rows.length > 0 && (
                     <>
-                      {/* Category header */}
                       <tr key={`cat-${gi}`}>
-                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
-                          style={{ background: CAT_COLORS[cat] + '25', color: CAT_COLORS[cat], borderTop: `2px solid ${CAT_COLORS[cat]}40` }}>
-                          {cat}
-                        </td>
+                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-white"
+                          style={{ background: CAT_COLORS[cat] }}>{cat}</td>
                       </tr>
                       {rows.map((r, ri) => (
                         <tr key={r.product_id}
-                          style={{ background: ri % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}
-                          className="hover:bg-white/5 transition-colors">
-                          <td className="px-4 py-2 text-xs font-medium text-slate-300">{r.product_name}</td>
+                          style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
+                          className="hover:bg-teal-50/40 transition-colors">
+                          <td className="px-4 py-2 text-xs font-medium text-slate-700">{r.product_name}</td>
                           <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
                           <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
                           <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
                           <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
-                          <td className="px-2 py-2 text-center text-sm font-semibold">
-                            {cellVal(r.closing)}
-                          </td>
+                          <td className="px-2 py-2 text-center text-sm font-semibold">{cellVal(r.closing)}</td>
                         </tr>
                       ))}
                     </>
                   )
                 ))}
-
-                {/* Totals row */}
-                <tr style={{ background: '#d97706', borderTop: '2px solid #f59e0b' }}>
-                  <td className="px-4 py-2.5 text-xs font-bold text-white uppercase tracking-wide">TOTALS</td>
+                <tr style={{ background: '#0d9488', borderTop: '2px solid #0f766e' }}>
+                  <td className="px-4 py-2.5 text-xs font-bold text-white uppercase tracking-wide">GRAND TOTAL</td>
                   {(['opening','recv_dubai','recv_umq','dispatch','closing'] as const).map(f => (
-                    <td key={f} className="px-3 py-2.5 text-center text-sm font-bold text-white">
-                      {totals[f].toLocaleString()}
-                    </td>
+                    <td key={f} className="px-3 py-2.5 text-center text-sm font-bold text-white">{totals[f].toLocaleString()}</td>
                   ))}
                 </tr>
               </tbody>
