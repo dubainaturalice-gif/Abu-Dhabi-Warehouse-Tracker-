@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import { MonthlyProductSummary } from '@/types';
 
@@ -44,6 +44,15 @@ export default function MonthlySummary() {
     v === 0 ? <span style={{ color: '#ef4444', fontWeight: 700 }}>0</span>
              : <span>{v.toLocaleString()}</span>;
 
+  const handleMonthChange = (delta: number) => {
+    let newMonth = month + delta;
+    let newYear = year;
+    if (newMonth < 1) { newMonth = 12; newYear--; }
+    if (newMonth > 12) { newMonth = 1; newYear++; }
+    setMonth(newMonth);
+    setYear(newYear);
+  };
+
   const handlePDF = async () => {
     const { default: jsPDF } = await import('jspdf');
     const { default: autoTable } = await import('jspdf-autotable');
@@ -55,7 +64,7 @@ export default function MonthlySummary() {
     doc.setTextColor(255,255,255);
     doc.setFontSize(16);
     doc.setFont('helvetica','bold');
-    doc.text('ABU DHABI WAREHOUSE — MONTHLY SUMMARY', 15, 12);
+    doc.text('ABU DHABI WAREHOUSE \u2014 MONTHLY SUMMARY', 15, 12);
     doc.setFontSize(10);
     doc.setFont('helvetica','normal');
     doc.setTextColor(148,163,184);
@@ -89,14 +98,16 @@ export default function MonthlySummary() {
     for (const cat of CATEGORIES) {
       const rows = data.filter(r => r.category === cat);
       if (!rows.length) continue;
-      const rgb = cat === 'ICE PRODUCTS — FROM DUBAI' ? [13,148,136] : cat === 'JELAT ICE CREAM' ? [124,58,237] : [249,115,22];
-      doc.setFillColor(...(rgb as [number,number,number]));
-      doc.rect(15, startY, 267, 7, 'F');
-      doc.setTextColor(255,255,255);
-      doc.setFontSize(8);
-      doc.setFont('helvetica','bold');
-      doc.text(cat, 18, startY + 5);
-      startY += 7;
+      if (cat !== 'ICE PRODUCTS \u2014 FROM DUBAI') {
+        const rgb = cat === 'JELAT ICE CREAM' ? [124,58,237] : [249,115,22];
+        doc.setFillColor(...(rgb as [number,number,number]));
+        doc.rect(15, startY, 267, 7, 'F');
+        doc.setTextColor(255,255,255);
+        doc.setFontSize(8);
+        doc.setFont('helvetica','bold');
+        doc.text(cat, 18, startY + 5);
+        startY += 7;
+      }
 
       autoTable(doc, {
         startY,
@@ -120,23 +131,23 @@ export default function MonthlySummary() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
         <div>
-          <h1 className="text-xl font-bold text-white">Monthly Summary</h1>
-          <p className="text-slate-400 text-sm mt-0.5">{MONTH_NAMES[month-1]} {year}</p>
+          <h1 className="text-xl font-bold text-slate-800">Monthly Summary</h1>
+          <p className="text-slate-500 text-sm mt-0.5">{MONTH_NAMES[month-1]} {year}</p>
         </div>
         <div className="flex items-center gap-2">
+          <button onClick={() => handleMonthChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Previous Month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
           <select value={month} onChange={e => setMonth(+e.target.value)}
-            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
-            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            className="text-sm text-slate-700 px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500">
             {MONTH_NAMES.map((n, i) => <option key={i} value={i+1}>{n}</option>)}
           </select>
           <select value={year} onChange={e => setYear(+e.target.value)}
-            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
-            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            className="text-sm text-slate-700 px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500">
             {[2024,2025,2026,2027,2028].map(y => <option key={y} value={y}>{y}</option>)}
           </select>
+          <button onClick={() => handleMonthChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Next Month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
           <button onClick={handlePDF}
-            className="text-sm font-medium px-4 py-2 rounded-lg transition-all"
-            style={{ background: '#0d9488', color: '#fff' }}>
+            className="text-sm font-medium px-4 py-2 rounded-lg transition-all border"
+            style={{ background: '#1e3a5f', color: '#fff', borderColor: '#1e3a5f' }}>
             📄 Export PDF
           </button>
         </div>
@@ -151,10 +162,10 @@ export default function MonthlySummary() {
           { label: 'Dispatched',    val: totals.total_dispatch,   color: '#f97316', icon: '📤' },
           { label: 'Closing Stock', val: totals.closing,          color: '#f59e0b', icon: '🏁' },
         ].map(k => (
-          <div key={k.label} className="rounded-xl p-4" style={{ background: '#0f1f36', border: `1px solid ${k.color}30` }}>
+          <div key={k.label} className="rounded-xl p-4 bg-white shadow-sm" style={{ border: `1px solid ${k.color}30` }}>
             <div className="flex items-center gap-2 mb-2">
               <span>{k.icon}</span>
-              <span className="text-xs text-slate-400">{k.label}</span>
+              <span className="text-xs text-slate-500">{k.label}</span>
             </div>
             <div className="text-xl font-bold" style={{ color: k.val === 0 ? '#ef4444' : k.color }}>
               {k.val.toLocaleString()}
@@ -168,17 +179,17 @@ export default function MonthlySummary() {
           <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
         </div>
       ) : (
-        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+        <div className="rounded-xl overflow-hidden bg-white shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr style={{ background: '#0A1628' }}>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Product</th>
-                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#60a5fa' }}>Opening</th>
-                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#34d399' }}>Recv Dubai</th>
-                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#a78bfa' }}>Recv UMQ</th>
-                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#fb923c' }}>Dispatched</th>
-                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase" style={{ color: '#facc15' }}>Closing</th>
+                <tr style={{ background: '#f8fafc' }}>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide border-b border-slate-200">Product</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase border-b border-slate-200" style={{ color: '#3b82f6' }}>Opening</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase border-b border-slate-200" style={{ color: '#0d9488' }}>Recv Dubai</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase border-b border-slate-200" style={{ color: '#7c3aed' }}>Recv UMQ</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase border-b border-slate-200" style={{ color: '#f97316' }}>Dispatched</th>
+                  <th className="px-3 py-3 text-xs font-semibold text-center uppercase border-b border-slate-200" style={{ color: '#d97706' }}>Closing</th>
                 </tr>
               </thead>
               <tbody>
@@ -186,17 +197,19 @@ export default function MonthlySummary() {
                   const rows = data.filter(r => r.category === cat);
                   if (!rows.length) return null;
                   return (
-                    <>
-                      <tr key={`cat-${gi}`}>
-                        <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
-                          style={{ background: CAT_COLORS[cat] + '25', color: CAT_COLORS[cat], borderTop: `2px solid ${CAT_COLORS[cat]}40` }}>
-                          {cat}
-                        </td>
-                      </tr>
+                    <React.Fragment key={`cat-${gi}`}>
+                      {cat !== 'ICE PRODUCTS \u2014 FROM DUBAI' && (
+                        <tr>
+                          <td colSpan={6} className="px-4 py-2 text-xs font-bold uppercase tracking-widest"
+                            style={{ background: CAT_COLORS[cat] + '15', color: CAT_COLORS[cat], borderTop: `2px solid ${CAT_COLORS[cat]}40` }}>
+                            {cat}
+                          </td>
+                        </tr>
+                      )}
                       {rows.map((r, ri) => (
                         <tr key={r.product_id}
-                          style={{ background: ri % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}>
-                          <td className="px-4 py-2.5 text-xs font-medium text-slate-300">{r.product_name}</td>
+                          style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}>
+                          <td className="px-4 py-2.5 text-xs font-medium text-slate-700">{r.product_name}</td>
                           <td className="px-3 py-2.5 text-center">{zeroRed(r.opening)}</td>
                           <td className="px-3 py-2.5 text-center">{zeroRed(r.total_recv_dubai)}</td>
                           <td className="px-3 py-2.5 text-center">{zeroRed(r.total_recv_umq)}</td>
@@ -204,7 +217,7 @@ export default function MonthlySummary() {
                           <td className="px-3 py-2.5 text-center font-semibold">{zeroRed(r.closing)}</td>
                         </tr>
                       ))}
-                    </>
+                    </React.Fragment>
                   );
                 })}
                 {/* Totals */}
