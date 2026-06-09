@@ -22,16 +22,16 @@ export default function AppLayout({ children }: { children: ReactNode }) {
   if (!user) return null;
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ background: '#040d1a' }}>
+    <div className="flex h-screen overflow-hidden" style={{ background: '#f1f5f9' }}>
       {/* Sidebar */}
-      <aside className="w-56 flex-shrink-0 flex flex-col" style={{ background: '#0A1628', borderRight: '1px solid #1a2f4a' }}>
+      <aside className="w-56 flex-shrink-0 flex flex-col bg-white" style={{ borderRight: '1px solid #e2e8f0', boxShadow: '2px 0 8px rgba(0,0,0,0.04)' }}>
         {/* Logo */}
-        <div className="px-4 py-5 border-b" style={{ borderColor: '#1a2f4a' }}>
+        <div className="px-4 py-5 border-b border-slate-100">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base" style={{ background: 'linear-gradient(135deg,#0d9488,#14b8a6)' }}>🧊</div>
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg" style={{ background: 'linear-gradient(135deg,#0d9488,#14b8a6)' }}>🧊</div>
             <div>
-              <div className="text-white font-semibold text-sm leading-tight">Abu Dhabi</div>
-              <div className="text-teal-500 text-xs">Warehouse Tracker</div>
+              <div className="font-bold text-sm text-slate-800 leading-tight">Abu Dhabi</div>
+              <div className="text-xs font-medium" style={{ color: '#0d9488' }}>Warehouse Tracker</div>
             </div>
           </div>
         </div>
@@ -42,10 +42,10 @@ export default function AppLayout({ children }: { children: ReactNode }) {
             <Link key={n.href} href={n.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
                 pathname === n.href
-                  ? 'text-teal-400 font-medium'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'font-semibold'
+                  : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
               }`}
-              style={pathname === n.href ? { background: 'rgba(13,148,136,0.15)', borderLeft: '2px solid #14b8a6' } : {}}
+              style={pathname === n.href ? { background: 'rgba(13,148,136,0.10)', borderLeft: '3px solid #0d9488', color: '#0d9488', paddingLeft: '10px' } : {}}
             >
               <span>{n.icon}</span>{n.label}
             </Link>
@@ -54,10 +54,10 @@ export default function AppLayout({ children }: { children: ReactNode }) {
             <Link href="/users"
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
                 pathname === '/users'
-                  ? 'text-teal-400 font-medium'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'font-semibold'
+                  : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
               }`}
-              style={pathname === '/users' ? { background: 'rgba(13,148,136,0.15)', borderLeft: '2px solid #14b8a6' } : {}}
+              style={pathname === '/users' ? { background: 'rgba(13,148,136,0.10)', borderLeft: '3px solid #0d9488', color: '#0d9488', paddingLeft: '10px' } : {}}
             >
               <span>👥</span>User Management
             </Link>
@@ -65,21 +65,21 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         </nav>
 
         {/* User info + logout */}
-        <div className="p-3 border-t" style={{ borderColor: '#1a2f4a' }}>
+        <div className="p-3 border-t border-slate-100">
           <div className="flex items-center gap-2.5 mb-2">
-            <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white"
+            <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
               style={{ background: user.role === 'admin' ? '#7c3aed' : '#0d9488' }}>
               {user.username[0].toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-white text-xs font-medium truncate">{user.username}</div>
-              <div className="text-xs" style={{ color: user.role === 'admin' ? '#a78bfa' : '#14b8a6' }}>
+              <div className="text-slate-800 text-xs font-semibold truncate">{user.username}</div>
+              <div className="text-xs" style={{ color: user.role === 'admin' ? '#7c3aed' : '#0d9488' }}>
                 {user.role === 'admin' ? 'Administrator' : 'Employee'}
               </div>
             </div>
           </div>
           <button onClick={() => { logout(); router.replace('/login'); }}
-            className="w-full text-xs text-slate-500 hover:text-red-400 py-1.5 px-2 rounded hover:bg-red-500/10 transition-all text-left">
+            className="w-full text-xs text-slate-400 hover:text-red-500 py-1.5 px-2 rounded hover:bg-red-50 transition-all text-left">
             Sign Out
           </button>
         </div>
