@@ -47,7 +47,7 @@ export default function YearlySummary() {
     doc.setTextColor(255,255,255);
     doc.setFontSize(16);
     doc.setFont('helvetica','bold');
-    doc.text(`ABU DHABI WAREHOUSE — YEARLY OVERVIEW ${year}`, 15, 12);
+    doc.text(`ABU DHABI WAREHOUSE \u2014 YEARLY OVERVIEW ${year}`, 15, 12);
     doc.setFontSize(10);
     doc.setFont('helvetica','normal');
     doc.setTextColor(148,163,184);
@@ -95,18 +95,19 @@ export default function YearlySummary() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
         <div>
-          <h1 className="text-xl font-bold text-white">Yearly Overview</h1>
-          <p className="text-slate-400 text-sm mt-0.5">Month-by-month breakdown for {year}</p>
+          <h1 className="text-xl font-bold text-slate-800">Yearly Overview</h1>
+          <p className="text-slate-500 text-sm mt-0.5">Month-by-month breakdown for {year}</p>
         </div>
         <div className="flex items-center gap-2">
+          <button onClick={() => setYear(y => y - 1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Previous Year"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
           <select value={year} onChange={e => setYear(+e.target.value)}
-            className="text-sm text-white px-3 py-2 rounded-lg border focus:outline-none"
-            style={{ background: '#0f1f36', borderColor: '#1a2f4a' }}>
+            className="text-sm text-slate-700 px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500">
             {[2024,2025,2026,2027,2028].map(y => <option key={y} value={y}>{y}</option>)}
           </select>
+          <button onClick={() => setYear(y => y + 1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200" title="Next Year"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
           <button onClick={handlePDF}
-            className="text-sm font-medium px-4 py-2 rounded-lg"
-            style={{ background: '#0d9488', color: '#fff' }}>
+            className="text-sm font-medium px-4 py-2 rounded-lg border"
+            style={{ background: '#1e3a5f', color: '#fff', borderColor: '#1e3a5f' }}>
             📄 Export PDF
           </button>
         </div>
@@ -120,10 +121,10 @@ export default function YearlySummary() {
           { label: 'Total Dispatched', val: totals.dispatch,   color: '#f97316', icon: '📤' },
           { label: 'Days with Data',   val: totals.days,       color: '#60a5fa', icon: '📅' },
         ].map(k => (
-          <div key={k.label} className="rounded-xl p-4" style={{ background: '#0f1f36', border: `1px solid ${k.color}30` }}>
+          <div key={k.label} className="rounded-xl p-4 bg-white shadow-sm" style={{ border: `1px solid ${k.color}30` }}>
             <div className="flex items-center gap-2 mb-2">
               <span>{k.icon}</span>
-              <span className="text-xs text-slate-400">{k.label}</span>
+              <span className="text-xs text-slate-500">{k.label}</span>
             </div>
             <div className="text-2xl font-bold" style={{ color: k.color }}>
               {k.val.toLocaleString()}
@@ -133,15 +134,15 @@ export default function YearlySummary() {
       </div>
 
       {/* Bar Chart */}
-      <div className="rounded-xl p-5 mb-6" style={{ background: '#0f1f36', border: '1px solid #1a2f4a' }}>
-        <h3 className="text-sm font-semibold text-slate-300 mb-4">Monthly Movement Chart</h3>
+      <div className="rounded-xl p-5 mb-6 bg-white shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
+        <h3 className="text-sm font-semibold text-slate-600 mb-4">Monthly Movement Chart</h3>
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1a2f4a" />
-            <XAxis dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} />
-            <YAxis tick={{ fill: '#94a3b8', fontSize: 11 }} />
-            <Tooltip contentStyle={{ background: '#0A1628', border: '1px solid #1a2f4a', borderRadius: 8, color: '#e2e8f0' }} />
-            <Legend wrapperStyle={{ color: '#94a3b8', fontSize: 12 }} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <XAxis dataKey="name" tick={{ fill: '#64748b', fontSize: 11 }} />
+            <YAxis tick={{ fill: '#64748b', fontSize: 11 }} />
+            <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, color: '#334155' }} />
+            <Legend wrapperStyle={{ color: '#64748b', fontSize: 12 }} />
             <Bar dataKey="Recv Dubai" fill="#14b8a6" radius={[3,3,0,0]} />
             <Bar dataKey="Recv UMQ"   fill="#a78bfa" radius={[3,3,0,0]} />
             <Bar dataKey="Dispatched" fill="#f97316" radius={[3,3,0,0]} />
@@ -155,14 +156,14 @@ export default function YearlySummary() {
           <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
         </div>
       ) : (
-        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1a2f4a' }}>
+        <div className="rounded-xl overflow-hidden bg-white shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr style={{ background: '#0A1628' }}>
+                <tr style={{ background: '#f8fafc' }}>
                   {['Month','Opening','Recv Dubai','Recv UMQ','Dispatched','Closing','Days'].map((h,i) => (
-                    <th key={h} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wide ${i === 0 ? 'text-left' : 'text-center'}`}
-                      style={{ color: ['#e2e8f0','#60a5fa','#34d399','#a78bfa','#fb923c','#facc15','#94a3b8'][i] }}>
+                    <th key={h} className={`px-4 py-3 text-xs font-semibold uppercase tracking-wide border-b border-slate-200 ${i === 0 ? 'text-left' : 'text-center'}`}
+                      style={{ color: ['#475569','#3b82f6','#0d9488','#7c3aed','#f97316','#d97706','#64748b'][i] }}>
                       {h}
                     </th>
                   ))}
@@ -171,15 +172,15 @@ export default function YearlySummary() {
               <tbody>
                 {data.map((m, i) => (
                   <tr key={m.month}
-                    style={{ background: i % 2 === 0 ? '#0f1f36' : '#0A1628', borderBottom: '1px solid #1a2f4a1a' }}
-                    className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-2.5 text-sm font-semibold text-white">{m.month_name}</td>
+                    style={{ background: i % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
+                    className="hover:bg-slate-50 transition-colors">
+                    <td className="px-4 py-2.5 text-sm font-semibold text-slate-800">{m.month_name}</td>
                     <td className="px-4 py-2.5 text-center text-sm">{m.opening > 0 ? m.opening.toLocaleString() : <span style={{color:'#ef4444',fontWeight:700}}>0</span>}</td>
-                    <td className="px-4 py-2.5 text-center text-sm text-teal-400">{m.total_recv_dubai.toLocaleString()}</td>
-                    <td className="px-4 py-2.5 text-center text-sm text-purple-400">{m.total_recv_umq.toLocaleString()}</td>
-                    <td className="px-4 py-2.5 text-center text-sm text-orange-400">{m.total_dispatch.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm" style={{color:'#0d9488'}}>{m.total_recv_dubai.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm" style={{color:'#7c3aed'}}>{m.total_recv_umq.toLocaleString()}</td>
+                    <td className="px-4 py-2.5 text-center text-sm" style={{color:'#f97316'}}>{m.total_dispatch.toLocaleString()}</td>
                     <td className="px-4 py-2.5 text-center text-sm font-semibold">{m.closing > 0 ? m.closing.toLocaleString() : <span style={{color:'#ef4444',fontWeight:700}}>0</span>}</td>
-                    <td className="px-4 py-2.5 text-center text-sm text-slate-400">{m.days_with_data}</td>
+                    <td className="px-4 py-2.5 text-center text-sm text-slate-500">{m.days_with_data}</td>
                   </tr>
                 ))}
                 <tr style={{ background: '#d97706', borderTop: '2px solid #f59e0b' }}>
