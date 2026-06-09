@@ -1,9 +1,9 @@
 'use client';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import { StockRecord } from '@/types';
 
-const CATEGORIES = ['ICE PRODUCTS — FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
+const CATEGORIES = ['ICE PRODUCTS \u2014 FROM DUBAI', 'JELAT ICE CREAM', 'ICE POP'];
 
 function fmtDate(d: Date) {
   const y = d.getFullYear();
@@ -233,10 +233,19 @@ export default function DailyEntry() {
         doc.setFontSize(6.5); doc.setFont('helvetica', 'normal');
         doc.text(k.label, x + kpiW / 2, kpiY + 13, { align: 'center' });
       });
+      const catColors: Record<string, [number, number, number]> = {
+        'ICE PRODUCTS \u2014 FROM DUBAI': [13, 148, 136],
+        'JELAT ICE CREAM': [99, 102, 241],
+        'ICE POP': [234, 88, 12],
+      };
       const bodyRows: object[][] = [];
       CATEGORIES.forEach(cat => {
         const catRows = records.filter(r => r.category === cat);
         if (!catRows.length) return;
+        if (cat !== 'ICE PRODUCTS \u2014 FROM DUBAI') {
+          const cc = catColors[cat] || [13, 148, 136];
+          bodyRows.push([{ content: cat, colSpan: 6, styles: { fillColor: cc, textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'left', cellPadding: { top: 2.5, bottom: 2.5, left: 4, right: 2 } } }]);
+        }
         catRows.forEach((r, ri) => {
           const bg = ri % 2 === 0 ? [255, 255, 255] : [248, 250, 252];
           const cell = (v: number) => ({ content: v.toString(), styles: { fillColor: bg, textColor: v === 0 ? [220, 38, 38] : [15, 23, 42], fontStyle: v === 0 ? 'bold' : 'normal', halign: 'center', fontSize: 8 } });
@@ -307,33 +316,33 @@ export default function DailyEntry() {
           <div className="flex items-center gap-3">
             <h1 className="text-xl font-bold text-slate-800">Daily Stock Entry</h1>
             <span className="text-xs font-bold px-2.5 py-1 rounded-full text-white" style={{ background: '#0d9488' }}>Day {dayNum}</span>
-            {isLocked && <span className="locked-badge">🔒 Locked</span>}
+            {isLocked && <span className="locked-badge">\ud83d\udd12 Locked</span>}
           </div>
           <p className="text-slate-500 text-sm mt-0.5">{dayName}, {fullDate}</p>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">‹</button>
+          <button onClick={() => handleDateChange(-1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">\u2039</button>
           <input type="date" value={date} onChange={e => { flushSave(); setDate(e.target.value); }}
             className="text-sm text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500" />
-          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">›</button>
+          <button onClick={() => handleDateChange(1)} className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-all border border-slate-200">\u203a</button>
           <button onClick={() => { flushSave(); setDate(fmtDate(new Date())); }}
             className="text-xs px-3 py-1.5 rounded-lg font-medium border border-teal-200 text-teal-600 hover:bg-teal-50 transition-all">Today</button>
         </div>
         <div className="flex items-center gap-2">
-          {saving && <span className="text-xs text-slate-400 animate-pulse">Saving…</span>}
-          {saved  && <span className="text-xs text-teal-600 font-medium">✓ Saved</span>}
+          {saving && <span className="text-xs text-slate-400 animate-pulse">Saving\u2026</span>}
+          {saved  && <span className="text-xs text-teal-600 font-medium">\u2713 Saved</span>}
           <button onClick={exportPDF} disabled={exporting || loading}
             className="text-sm font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 border"
             style={{ background: '#1e3a5f', color: '#fff', borderColor: '#1e3a5f', opacity: exporting ? 0.7 : 1 }}>
-            {exporting ? '⏳' : '📄'} {exporting ? 'Generating…' : 'Export PDF'}
+            {exporting ? '\u23f3' : '\ud83d\udcc4'} {exporting ? 'Generating\u2026' : 'Export PDF'}
           </button>
           {!isAdmin && (
             <button onClick={handleSaveClose} className="text-sm font-medium px-4 py-2 rounded-lg transition-all text-white" style={{ background: '#0d9488' }}>
-              💾 Save &amp; Close
+              \ud83d\udcbe Save &amp; Close
             </button>
           )}
           {isAdmin && isLocked && (
-            <button onClick={handleUnlock} className="text-sm px-3 py-2 rounded-lg border border-orange-200 text-orange-600 hover:bg-orange-50 transition-all">🔓 Unlock</button>
+            <button onClick={handleUnlock} className="text-sm px-3 py-2 rounded-lg border border-orange-200 text-orange-600 hover:bg-orange-50 transition-all">\ud83d\udd13 Unlock</button>
           )}
           {isAdmin && !isLocked && (
             <button onClick={() => setShowReset(true)} className="text-sm px-3 py-2 rounded-lg border border-red-200 text-red-500 hover:bg-red-50 transition-all">Reset Day</button>
@@ -344,7 +353,7 @@ export default function DailyEntry() {
       {showReset && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
           <div className="rounded-2xl p-6 max-w-sm w-full mx-4 text-center bg-white shadow-xl border border-slate-200">
-            <div className="text-3xl mb-3">⚠️</div>
+            <div className="text-3xl mb-3">\u26a0\ufe0f</div>
             <h3 className="text-slate-800 font-semibold mb-2">Reset Day?</h3>
             <p className="text-slate-500 text-sm mb-5">This will zero out all movements. Opening stock stays.</p>
             <div className="flex gap-3 justify-center">
@@ -374,20 +383,32 @@ export default function DailyEntry() {
                 </tr>
               </thead>
               <tbody>
-                {grouped.map(({ cat, rows }) => (
-                  rows.map((r, ri) => (
-                    <tr key={r.product_id}
-                      style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
-                      className="hover:bg-teal-50/40 transition-colors">
-                      <td className="px-4 py-2 text-xs font-medium text-slate-700">{r.product_name}</td>
-                      <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
-                      <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
-                      <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
-                      <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
-                      <td className="px-2 py-2 text-center text-sm font-semibold">{cellVal(r.closing)}</td>
-                    </tr>
-                  ))
-                ))}
+                {grouped.map(({ cat, rows }) => {
+                  const catBannerColors: Record<string, string> = {
+                    'JELAT ICE CREAM': '#6366f1',
+                    'ICE POP': '#ea580c',
+                  };
+                  const bannerBg = catBannerColors[cat];
+                  return (
+                    <React.Fragment key={cat}>
+                      {bannerBg && (
+                        <tr><td colSpan={6} style={{ background: bannerBg, padding: '6px 16px' }} className="text-xs font-bold text-white uppercase tracking-wide">{cat}</td></tr>
+                      )}
+                      {rows.map((r, ri) => (
+                        <tr key={r.product_id}
+                          style={{ background: ri % 2 === 0 ? '#ffffff' : '#f8fafc', borderBottom: '1px solid #f1f5f9' }}
+                          className="hover:bg-teal-50/40 transition-colors">
+                          <td className="px-4 py-2 text-xs font-medium text-slate-700">{r.product_name}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'opening')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_dubai')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'recv_umq')}</td>
+                          <td className="px-2 py-1 text-center">{renderInput(r, 'dispatch')}</td>
+                          <td className="px-2 py-2 text-center text-sm font-semibold">{cellVal(r.closing)}</td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
+                  );
+                })}
                 <tr style={{ background: '#0d9488', borderTop: '2px solid #0f766e' }}>
                   <td className="px-4 py-2.5 text-xs font-bold text-white uppercase tracking-wide">GRAND TOTAL</td>
                   {(['opening','recv_dubai','recv_umq','dispatch','closing'] as const).map(f => (
